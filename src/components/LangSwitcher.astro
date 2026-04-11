@@ -1,0 +1,56 @@
+---
+interface Props {
+  currentLang: 'en' | 'zh';
+  enLabel: string;
+  zhLabel: string;
+}
+
+const { currentLang, enLabel, zhLabel } = Astro.props;
+---
+
+<nav class="lang-switcher" aria-label="Language">
+  <a
+    href="/"
+    class:list={['lang-link', { active: currentLang === 'en' }]}
+    aria-current={currentLang === 'en' ? 'page' : undefined}
+  >
+    {enLabel}
+  </a>
+  <span class="lang-divider" aria-hidden="true">|</span>
+  <a
+    href="/zh/"
+    class:list={['lang-link', { active: currentLang === 'zh' }]}
+    aria-current={currentLang === 'zh' ? 'page' : undefined}
+  >
+    {zhLabel}
+  </a>
+</nav>
+
+<style>
+  .lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .lang-link {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 200ms ease-out;
+  }
+
+  .lang-link:hover {
+    color: var(--color-text-secondary);
+  }
+
+  .lang-link.active {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .lang-divider {
+    color: var(--color-text-muted);
+  }
+</style>
