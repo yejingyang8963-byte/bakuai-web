@@ -1,0 +1,68 @@
+---
+import WhyCard from './WhyCard.astro';
+
+interface Card {
+  illustration: string;
+  illustrationAlt: string;
+  title: string;
+  body: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  cards: Card[];
+}
+
+const { sectionTitle, cards } = Astro.props;
+---
+
+<section class="why-section">
+  <h2 class="section-title">{sectionTitle}</h2>
+  <div class="why-grid">
+    {cards.map((card) => (
+      <WhyCard
+        illustration={card.illustration}
+        illustrationAlt={card.illustrationAlt}
+        title={card.title}
+        body={card.body}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .why-section {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 48;
+    text-align: center;
+    color: var(--color-text-primary);
+    margin: 0 0 48px;
+  }
+
+  .why-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    .why-section {
+      max-width: 880px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+  }
+</style>
