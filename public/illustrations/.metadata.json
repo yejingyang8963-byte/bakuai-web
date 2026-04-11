@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-04-11T19:17:56.034Z",
+  "totalImages": 20,
+  "estimatedCostUSD": 0.8,
+  "styleLockHash": "798b876d4a8b1ac2",
+  "images": [
+    {
+      "id": "01-hero-moon",
+      "type": "anchor",
+      "size": "1024x1024",
+      "promptHash": "e6c5155f3a304d4c",
+      "fileSize": 1678273,
+      "success": true
+    },
+    {
+      "id": "02-founder-silhouette",
+      "type": "anchor",
+      "size": "1024x1024",
+      "promptHash": "0bdc0b3e4fce5eba",
+      "fileSize": 1888918,
+      "success": true
+    },
+    {
+      "id": "03-sleepy-dragon",
+      "type": "anchor",
+      "size": "1024x1024",
+      "promptHash": "d64d885aca7ce659",
+      "fileSize": 1660932,
+      "success": true
+    },
+    {
+      "id": "04-house-on-hill",
+      "type": "anchor",
+      "promptHash": "f7aac319e74dc84b",
+      "success": false,
+      "error": "{\"error\":{\"code\":400,\"message\":\"aspectRatio 2:1 is not supported. Supported values are 1:1, 9:16, 16:9, 4:3, 3:4.\",\"status\":\"INVALID_ARGUMENT\"}}"
+    },
+    {
+      "id": "05-paper-airplane",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "1b24c3f0a900cc9c",
+      "fileSize": 1891134,
+      "success": true
+    },
+    {
+      "id": "06-locked-chest",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "5403089fe5590339",
+      "fileSize": 1286791,
+      "success": true
+    },
+    {
+      "id": "07-child-with-teddy",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "5c5cb4cd79e9dca5",
+      "fileSize": 1876326,
+      "success": true
+    },
+    {
+      "id": "08-three-children",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "fe310c650735387c",
+      "fileSize": 1865643,
+      "success": true
+    },
+    {
+      "id": "09-book-stars",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "af2b08b3e51a3924",
+      "fileSize": 1810879,
+      "success": true
+    },
+    {
+      "id": "10-stack-books",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "2ca2fac91c80740b",
+      "fileSize": 1888004,
+      "success": true
+    },
+    {
+      "id": "11-meditation-child",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "2e44462408719745",
+      "fileSize": 1393679,
+      "success": true
+    },
+    {
+      "id": "12-cat-constellation",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "6046c23a8b2d3128",
+      "fileSize": 1768197,
+      "success": true
+    },
+    {
+      "id": "13-rain-window",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "d1a8a35f98dc3acf",
+      "fileSize": 1847530,
+      "success": true
+    },
+    {
+      "id": "14-teacup-book",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "5d8833b06cbd200f",
+      "fileSize": 1600092,
+      "success": true
+    },
+    {
+      "id": "15-niece-reading",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "b687284fca6e6ff4",
+      "fileSize": 1748326,
+      "success": true
+    },
+    {
+      "id": "16-bedroom-night",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "6ca8588b0969f722",
+      "fileSize": 1926382,
+      "success": true
+    },
+    {
+      "id": "17-tucking-in",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "45d18b1945f98308",
+      "fileSize": 1746896,
+      "success": true
+    },
+    {
+      "id": "18-sleepy-owl",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "0156e3245e2d7519",
+      "fileSize": 1443387,
+      "success": true
+    },
+    {
+      "id": "19-decor-moon",
+      "type": "decor",
+      "size": "256x256",
+      "promptHash": "6bb43f00f88add91",
+      "fileSize": 1719562,
+      "success": true
+    },
+    {
+      "id": "20-decor-stars",
+      "type": "decor",
+      "size": "256x256",
+      "promptHash": "042e1fb4fa6d1a3c",
+      "fileSize": 1595850,
+      "success": true
+    }
+  ]
+}

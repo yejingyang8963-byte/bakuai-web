@@ -103,7 +103,7 @@ async function main() {
         prompt: fullPrompt,
         config: {
           numberOfImages: 1,
-          aspectRatio: ill.size === '1024x512' ? '2:1' : '1:1',
+          aspectRatio: ill.size === '1024x512' ? '16:9' : '1:1',
         },
       });
 
