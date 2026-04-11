@@ -18,6 +18,8 @@
     "update-metrics": "node scripts/update-metrics.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/instrument-sans": "^5.2.8",
     "@google/genai": "^1.49.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",

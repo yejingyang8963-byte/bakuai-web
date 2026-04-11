@@ -14,6 +14,7 @@ interface Props {
   hreflangZh: string;
   canonical: string;
   skipLinkLabel: string;
+  preloadHeroImage?: boolean;
 }
 
 const {
@@ -28,6 +29,7 @@ const {
   hreflangZh,
   canonical,
   skipLinkLabel,
+  preloadHeroImage = false,
 } = Astro.props;
 ---
 
@@ -58,6 +60,15 @@ const {
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    {preloadHeroImage && (
+      <link
+        rel="preload"
+        as="image"
+        href="/illustrations/01-hero-moon.webp"
+        fetchpriority="high"
+      />
+    )}
 
     <meta name="generator" content={Astro.generator} />
   </head>
