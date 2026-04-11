@@ -11,9 +11,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "sync-legal": "node scripts/sync-legal.mjs"
+    "sync-legal": "node scripts/sync-legal.mjs",
+    "gen-illustrations": "node scripts/generate-illustrations.mjs"
   },
   "dependencies": {
+    "@google/genai": "^1.49.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "tailwindcss": "^4.2.2"
