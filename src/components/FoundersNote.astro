@@ -1,0 +1,161 @@
+---
+import MetricsWall from './MetricsWall.astro';
+
+interface Metric {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  illustration: string;
+  illustrationAlt: string;
+  nieceIllustration: string;
+  nieceIllustrationAlt: string;
+  paragraphs: string[];
+  metricsTitle: string;
+  metrics: Metric[];
+  brandStatement1: string;
+  brandStatement2: string;
+  signature: string;
+  signatureLocation: string;
+}
+
+const props = Astro.props;
+---
+
+<section class="founder-section">
+  <h2 class="section-title">{props.sectionTitle}</h2>
+
+  <div class="founder-portrait">
+    <img
+      src={`/illustrations/${props.illustration}.png`}
+      alt={props.illustrationAlt}
+      width="240"
+      height="240"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="founder-narrative">
+    {props.paragraphs.map((p) => (
+      <p class="founder-paragraph">{p}</p>
+    ))}
+  </div>
+
+  <div class="niece-portrait">
+    <img
+      src={`/illustrations/${props.nieceIllustration}.png`}
+      alt={props.nieceIllustrationAlt}
+      width="180"
+      height="180"
+      loading="lazy"
+    />
+  </div>
+
+  <MetricsWall title={props.metricsTitle} metrics={props.metrics} />
+
+  <div class="brand-statement">
+    <p>{props.brandStatement1}</p>
+    <p>{props.brandStatement2}</p>
+  </div>
+
+  <div class="signature">
+    <p class="signature-name">{props.signature}</p>
+    <p class="signature-location">{props.signatureLocation}</p>
+  </div>
+</section>
+
+<style>
+  .founder-section {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 48;
+    text-align: center;
+    color: var(--color-text-primary);
+    margin: 0 0 48px;
+  }
+
+  .founder-portrait {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .founder-portrait img {
+    border-radius: 9999px;
+    object-fit: cover;
+    width: 240px;
+    height: 240px;
+    filter: drop-shadow(0 0 24px rgba(255, 208, 128, 0.15));
+  }
+
+  .founder-narrative {
+    margin-bottom: 40px;
+  }
+
+  .founder-paragraph {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    font-style: italic;
+    font-variation-settings: "opsz" 24;
+    color: var(--color-text-primary);
+    margin: 0 0 20px;
+  }
+
+  .niece-portrait {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+  .niece-portrait img {
+    border-radius: 16px;
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+  }
+
+  .brand-statement {
+    text-align: center;
+    margin: 32px 0;
+  }
+
+  .brand-statement p {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin: 0 0 4px;
+  }
+
+  .signature {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .signature-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .signature-location {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin: 4px 0 0;
+  }
+</style>

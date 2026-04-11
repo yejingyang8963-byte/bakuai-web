@@ -1,0 +1,74 @@
+---
+interface Metric {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  metrics: Metric[];
+}
+
+const { title, metrics } = Astro.props;
+---
+
+<div class="metrics-wall">
+  <p class="metrics-title">────── {title} ──────</p>
+  <dl class="metrics-list">
+    {metrics.map((m) => (
+      <div class="metric-row">
+        <dt class="metric-value">{m.value}</dt>
+        <dd class="metric-label">{m.label}</dd>
+      </div>
+    ))}
+  </dl>
+</div>
+
+<style>
+  .metrics-wall {
+    margin: 48px 0;
+    padding: 32px 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+  }
+
+  .metrics-title {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .metrics-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .metric-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-family: var(--font-mono);
+  }
+
+  .metric-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    min-width: 56px;
+    text-align: right;
+    margin: 0;
+  }
+
+  .metric-label {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+</style>
