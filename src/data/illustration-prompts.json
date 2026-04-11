@@ -1,0 +1,125 @@
+{
+  "styleLock": "Picture book watercolor illustration. Hand-painted with visible brush strokes and watercolor bleeds. Color palette: deep midnight blue background, warm amber gold highlights, cream and dusty rose accents. Soft and dreamy mood. NO TEXT in the image. NOT digital art. NOT 3D render. NOT vector graphics. Style of Komako Sakai's children's books mixed with Jon Klassen's quiet warmth. Cozy, gentle, bedtime storybook feeling.",
+  "illustrations": [
+    {
+      "id": "01-hero-moon",
+      "type": "anchor",
+      "size": "1024x1024",
+      "prompt": "A picture book watercolor illustration of an enormous glowing amber moon rising over soft watercolor hills at night. The moon's surface shows hand-painted craters in cream, gold, and dusty rose. Below, on a small grassy hill, a tiny silhouette of a child in pajamas sits with arms wrapped around their knees, gazing up at the moon. Scattered amber stars twinkle across the deep midnight blue sky. Soft watercolor bleeds at the edges. Composition: moon dominates upper 2/3, child silhouette in lower center."
+    },
+    {
+      "id": "02-founder-silhouette",
+      "type": "anchor",
+      "size": "1024x1024",
+      "prompt": "A picture book watercolor of a person sitting at a wooden writing desk by an open window at night, seen from behind, ONLY silhouette and hands visible — never the face. Warm amber moonlight pours through the window. The hands are writing in a leather notebook with a fountain pen. A ceramic moon-shaped lamp glows softly on the corner of the desk. Behind, a tall bookshelf with picture books in muted colors. A sleeping cat curled on the desk corner. Cozy, intimate, gentle."
+    },
+    {
+      "id": "03-sleepy-dragon",
+      "type": "anchor",
+      "size": "1024x1024",
+      "prompt": "A picture book watercolor of a small, gentle, friendly dragon curled up sleeping on a soft cream pillow under an amber moon. The dragon is round, cute, NOT scary — like a sleepy puppy. Tiny puffs of stars rise gently from its nose instead of smoke. Surrounded by small picture book elements: a teacup, an open bedtime story book, a knitted blanket."
+    },
+    {
+      "id": "04-house-on-hill",
+      "type": "anchor",
+      "size": "1024x512",
+      "prompt": "A picture book watercolor of a small house with a steep roof on a hill at night. Warm amber light glows from one window. An enormous amber moon rises behind the hill. Tiny stars sprinkled across the deep blue sky. Soft hills in the foreground in dusty purple. Wide panoramic composition. Hand-painted edges with watercolor bleeds."
+    },
+    {
+      "id": "05-paper-airplane",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small paper airplane made of cream-colored paper, gliding peacefully through a midnight sky next to a small amber moon. No signal bars, no Wi-Fi icons — just paper and sky."
+    },
+    {
+      "id": "06-locked-chest",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small wooden treasure chest with a tiny brass padlock, sitting under a soft amber starlight. The chest is closed. A small key hangs on a ribbon next to it. Cozy, safe, protected feeling."
+    },
+    {
+      "id": "07-child-with-teddy",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small child (about 4 years old, gender-neutral, from behind so face is not visible) in soft cream pajamas, holding a small brown teddy bear, walking toward a glowing window with an amber moon outside."
+    },
+    {
+      "id": "08-three-children",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of three small children of different ethnicities (all from behind, faces not visible — one with twin braids, one with curly hair, one with short hair) sitting in a small circle on a grassy hill at night, gathered close together while a giant amber moon glows above them. Each wears soft pajamas in different muted colors."
+    },
+    {
+      "id": "09-book-stars",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of an open hardcover storybook lying on a wooden surface at night. From the open pages, tiny amber stars float upward into the air like fireflies escaping. The book glows softly with amber light."
+    },
+    {
+      "id": "10-stack-books",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a tall, slightly leaning stack of children's bedtime story books on a wooden floor. The books have soft cloth covers in cream, amber, dusty blue, and pale rose. A small bookmark sticks out of one. An amber moon glows in the background through a window."
+    },
+    {
+      "id": "11-meditation-child",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small child (from behind, silhouette only, no face) sitting cross-legged on a cushion at night. A soft swirl of pale blue mist gently rises from where they're breathing, forming a small cloud above their head. An amber moon glows through a window."
+    },
+    {
+      "id": "12-cat-constellation",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a night sky filled with amber stars connected by faint silver lines forming the shape of a sleeping curled-up cat constellation. Below, soft hills in dusty purple. A few wispy watercolor clouds drift by."
+    },
+    {
+      "id": "13-rain-window",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor view from inside a cozy room, looking out a rain-streaked window at night. Soft drops of water on the glass. Outside: blurred amber lights and deep midnight blue sky. Inside: a corner of a knitted blanket and a steaming teacup."
+    },
+    {
+      "id": "14-teacup-book",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a steaming ceramic teacup next to an open notebook with handwritten pages (writing illegible, just suggested with watercolor strokes). On a wooden table at night. A small amber moon visible through a window."
+    },
+    {
+      "id": "15-niece-reading",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small girl (about 5 years old, from behind, face not visible, with twin braids) in cream pajamas, lying on her stomach on a bed, propped up on her elbows, reading a large picture book. An amber moon glows softly through the window. Cozy, peaceful, quiet moment."
+    },
+    {
+      "id": "16-bedroom-night",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small child's bedroom at night. A neatly made bed with a knitted blanket. A nightstand with a small lamp. A bookshelf with picture books. An amber moon glowing through the window. No people. Cozy, safe, lived-in."
+    },
+    {
+      "id": "17-tucking-in",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a tall adult silhouette gently tucking a small child into bed at night. Both seen from behind / in silhouette, no faces. An amber moon glows through the window. The blanket is being pulled up softly. Tender, intimate, gentle."
+    },
+    {
+      "id": "18-sleepy-owl",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor of a small, round, friendly owl perched on a thin tree branch at night, looking peaceful (eyes half-closed, sleepy). A large amber moon behind it. Soft watercolor leaves on the branch."
+    },
+    {
+      "id": "19-decor-moon",
+      "type": "decor",
+      "size": "256x256",
+      "prompt": "A picture book watercolor of a small simple amber moon on a deep midnight blue background. Just the moon, no other elements. Soft glow around it. Hand-painted texture visible."
+    },
+    {
+      "id": "20-decor-stars",
+      "type": "decor",
+      "size": "256x256",
+      "prompt": "A picture book watercolor of a small cluster of 5-7 amber stars of varying sizes, scattered organically. Deep midnight blue background. Tiny, simple, decorative."
+    }
+  ]
+}
