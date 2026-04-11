@@ -1,0 +1,128 @@
+---
+interface Props {
+  titleLine1: string;
+  titleLine2: string;
+  subtitle: string;
+  cta: string;
+  ctaSubtext: string;
+  moonAlt: string;
+}
+
+const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.props;
+---
+
+<section class="hero">
+  <div class="moon-wrap">
+    <img
+      src="/illustrations/01-hero-moon.png"
+      alt={moonAlt}
+      class="moon-img animate-breathe"
+      width="640"
+      height="640"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+
+  <h1 class="title">
+    <span class="title-line">{titleLine1}</span>
+    <span class="title-line">{titleLine2}</span>
+  </h1>
+
+  <p class="subtitle">{subtitle}</p>
+
+  <button type="button" class="cta-button" disabled aria-disabled="true">
+    {cta}
+  </button>
+  <p class="cta-subtext">{ctaSubtext}</p>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 60px;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .moon-wrap {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 0 40px rgba(255, 208, 128, 0.3));
+  }
+
+  .moon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-variation-settings: "opsz" 144;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0 0 24px;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .subtitle {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0 0 48px;
+    max-width: 480px;
+  }
+
+  .cta-button {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: var(--color-text-muted);
+    padding: 16px 40px;
+    border-radius: 9999px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: not-allowed;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .cta-subtext {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: 16px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @media (min-width: 1024px) {
+    .moon-wrap {
+      width: 320px;
+      height: 320px;
+    }
+    .title {
+      font-size: 5.25rem;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      max-width: 560px;
+    }
+  }
+</style>
