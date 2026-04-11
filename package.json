@@ -13,6 +13,8 @@
     "astro": "astro",
     "sync-legal": "node scripts/sync-legal.mjs",
     "gen-illustrations": "node scripts/generate-illustrations.mjs",
+    "optimize-illustrations": "node scripts/optimize-illustrations.mjs",
+    "build-og": "node scripts/build-og-image.mjs",
     "update-metrics": "node scripts/update-metrics.mjs"
   },
   "dependencies": {
@@ -20,6 +22,7 @@
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.5",
     "marked": "^18.0.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2",
     "yaml": "^2.8.3"
   }
