@@ -1,0 +1,148 @@
+---
+import { marked } from 'marked';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { parse } from 'yaml';
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  markdownFile: string;
+  htmlLang: string;
+  title: string;
+  ogUrl: string;
+  canonical: string;
+  currentLang: 'en' | 'zh';
+  privacyHref: string;
+  termsHref: string;
+}
+
+const {
+  markdownFile,
+  htmlLang,
+  title,
+  ogUrl,
+  canonical,
+  currentLang,
+  privacyHref,
+  termsHref,
+} = Astro.props;
+
+const mdPath = join(process.cwd(), 'src', 'pages-legal', markdownFile);
+const mdContent = readFileSync(mdPath, 'utf-8');
+const html = marked.parse(mdContent);
+
+const footerYamlLang = currentLang === 'zh' ? 'zh' : 'en';
+const footerYamlPath = join(process.cwd(), 'src', 'content', footerYamlLang, 'footer.yml');
+const footer = parse(readFileSync(footerYamlPath, 'utf-8'));
+
+const skipLinkLabel = currentLang === 'zh' ? '跳转到主要内容' : 'Skip to content';
+---
+
+<BaseLayout
+  htmlLang={htmlLang}
+  title={title}
+  description={title}
+  ogTitle={title}
+  ogDescription={title}
+  ogUrl={ogUrl}
+  hreflangEn="https://bakuai.app/"
+  hreflangZh="https://bakuai.app/zh/"
+  canonical={canonical}
+  skipLinkLabel={skipLinkLabel}
+>
+  <article class="legal-article">
+    <div set:html={html} />
+  </article>
+
+  <Footer
+    currentLang={currentLang}
+    panoramaIllustration={footer.panoramaIllustration}
+    panoramaIllustrationAlt={footer.panoramaIllustrationAlt}
+    brand={footer.brand}
+    tagline={footer.tagline}
+    linkPrivacy={footer.linkPrivacy}
+    linkTerms={footer.linkTerms}
+    linkEmail={footer.linkEmail}
+    copyright={footer.copyright}
+    langSwitcherEN={footer.langSwitcherEN}
+    langSwitcherZH={footer.langSwitcherZH}
+    privacyHref={privacyHref}
+    termsHref={termsHref}
+  />
+</BaseLayout>
+
+<style is:global>
+  .legal-article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 96px 20px 48px;
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: 1.7;
+  }
+
+  .legal-article h1 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 96;
+    margin: 0 0 32px;
+    color: var(--color-text-primary);
+  }
+
+  .legal-article h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 48;
+    margin: 48px 0 16px;
+    color: var(--color-text-primary);
+  }
+
+  .legal-article h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    color: var(--color-text-primary);
+  }
+
+  .legal-article p {
+    margin: 0 0 16px;
+    color: var(--color-text-secondary);
+  }
+
+  .legal-article a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-article ul, .legal-article ol {
+    margin: 0 0 16px;
+    padding-left: 24px;
+    color: var(--color-text-secondary);
+  }
+
+  .legal-article li {
+    margin-bottom: 8px;
+  }
+
+  .legal-article hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 48px 0;
+  }
+
+  .legal-article code {
+    background: var(--color-surface);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+  }
+</style>
