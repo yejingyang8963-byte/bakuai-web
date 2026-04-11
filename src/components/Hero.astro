@@ -12,57 +12,64 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
 ---
 
 <section class="hero">
-  <div class="moon-wrap">
-    <img
-      src="/illustrations/01-hero-moon.webp"
-      alt={moonAlt}
-      class="moon-img animate-breathe"
-      width="640"
-      height="640"
-      loading="eager"
-      fetchpriority="high"
-    />
+  <img
+    src="/illustrations/01-hero-moon.webp"
+    alt={moonAlt}
+    class="moon-bg animate-breathe"
+    width="1024"
+    height="1024"
+    loading="eager"
+    fetchpriority="high"
+  />
+
+  <div class="hero-content">
+    <h1 class="title">
+      <span class="title-line">{titleLine1}</span>
+      <span class="title-line">{titleLine2}</span>
+    </h1>
+
+    <p class="subtitle">{subtitle}</p>
+
+    <button type="button" class="cta-button" disabled aria-disabled="true">
+      {cta}
+    </button>
+    <p class="cta-subtext">{ctaSubtext}</p>
   </div>
-
-  <h1 class="title">
-    <span class="title-line">{titleLine1}</span>
-    <span class="title-line">{titleLine2}</span>
-  </h1>
-
-  <p class="subtitle">{subtitle}</p>
-
-  <button type="button" class="cta-button" disabled aria-disabled="true">
-    {cta}
-  </button>
-  <p class="cta-subtext">{ctaSubtext}</p>
 </section>
 
 <style>
   .hero {
     min-height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 80px 20px 60px;
+    justify-content: flex-end;
+    padding: 60px 20px 80px;
     text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .moon-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: min(120vw, 720px);
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 1;
+    filter: drop-shadow(0 0 80px rgba(255, 208, 128, 0.35));
+  }
+
+  .hero-content {
     position: relative;
     z-index: 2;
-  }
-
-  .moon-wrap {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 40px;
-    filter: drop-shadow(0 0 40px rgba(255, 208, 128, 0.3));
-  }
-
-  .moon-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-top: 50vh;
   }
 
   .title {
@@ -74,6 +81,7 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
     letter-spacing: -0.02em;
     color: var(--color-text-primary);
     margin: 0 0 24px;
+    text-shadow: 0 2px 24px rgba(5, 5, 16, 0.6);
   }
 
   .title-line {
@@ -87,6 +95,9 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
     color: var(--color-text-secondary);
     margin: 0 0 48px;
     max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 16px rgba(5, 5, 16, 0.6);
   }
 
   .cta-button {
@@ -112,10 +123,20 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
     letter-spacing: 0.1em;
   }
 
+  @media (min-width: 768px) {
+    .moon-bg {
+      width: min(85vw, 900px);
+      transform: translate(-50%, -60%);
+    }
+    .hero-content {
+      padding-top: 55vh;
+    }
+  }
+
   @media (min-width: 1024px) {
-    .moon-wrap {
-      width: 320px;
-      height: 320px;
+    .moon-bg {
+      width: min(70vw, 1100px);
+      transform: translate(-50%, -58%);
     }
     .title {
       font-size: 5.25rem;
