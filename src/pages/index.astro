@@ -1,17 +1,96 @@
 ---
+import { parse } from 'yaml';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import WhyParents from '../components/WhyParents.astro';
+import FoundersNote from '../components/FoundersNote.astro';
+import WhatsInside from '../components/WhatsInside.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+
+const contentDir = join(process.cwd(), 'src', 'content', 'en');
+
+function loadYaml(name: string) {
+  return parse(readFileSync(join(contentDir, `${name}.yml`), 'utf-8'));
+}
+
+const meta = loadYaml('meta');
+const hero = loadYaml('hero');
+const why = loadYaml('why');
+const founder = loadYaml('founder');
+const inside = loadYaml('inside');
+const faq = loadYaml('faq');
+const footer = loadYaml('footer');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  htmlLang={meta.htmlLang}
+  title={meta.title}
+  description={meta.description}
+  ogTitle={meta.ogTitle}
+  ogDescription={meta.ogDescription}
+  ogUrl={meta.ogUrl}
+  hreflangEn="https://bakuai.app/"
+  hreflangZh="https://bakuai.app/zh/"
+  canonical="https://bakuai.app/"
+  skipLinkLabel="Skip to content"
+>
+  <Hero
+    titleLine1={hero.titleLine1}
+    titleLine2={hero.titleLine2}
+    subtitle={hero.subtitle}
+    cta={hero.cta}
+    ctaSubtext={hero.ctaSubtext}
+    moonAlt={hero.moonAlt}
+  />
+
+  <WhyParents sectionTitle={why.sectionTitle} cards={why.cards} />
+
+  <FoundersNote
+    sectionTitle={founder.sectionTitle}
+    illustration={founder.illustration}
+    illustrationAlt={founder.illustrationAlt}
+    nieceIllustration={founder.nieceIllustration}
+    nieceIllustrationAlt={founder.nieceIllustrationAlt}
+    paragraphs={founder.paragraphs}
+    metricsTitle={founder.metricsTitle}
+    metrics={founder.metrics}
+    brandStatement1={founder.brandStatement1}
+    brandStatement2={founder.brandStatement2}
+    signature={founder.signature}
+    signatureLocation={founder.signatureLocation}
+  />
+
+  <WhatsInside
+    sectionTitle={inside.sectionTitle}
+    anchorIllustration={inside.anchorIllustration}
+    anchorIllustrationAlt={inside.anchorIllustrationAlt}
+    features={inside.features}
+  />
+
+  <FAQ
+    sectionTitle={faq.sectionTitle}
+    illustration={faq.illustration}
+    illustrationAlt={faq.illustrationAlt}
+    items={faq.items}
+  />
+
+  <Footer
+    currentLang="en"
+    panoramaIllustration={footer.panoramaIllustration}
+    panoramaIllustrationAlt={footer.panoramaIllustrationAlt}
+    brand={footer.brand}
+    tagline={footer.tagline}
+    linkPrivacy={footer.linkPrivacy}
+    linkTerms={footer.linkTerms}
+    linkEmail={footer.linkEmail}
+    copyright={footer.copyright}
+    langSwitcherEN={footer.langSwitcherEN}
+    langSwitcherZH={footer.langSwitcherZH}
+    privacyHref="/privacy-policy/"
+    termsHref="/terms-of-service/"
+  />
+</BaseLayout>
