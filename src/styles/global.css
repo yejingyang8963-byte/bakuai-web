@@ -1,1 +1,139 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Instrument+Sans:wght@400..700&display=swap');
+
+@theme {
+  --color-bg-primary: #050510;
+  --color-bg-secondary: #0A0A2A;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  --color-accent: #FFD080;
+  --color-accent-soft: #F5E6C8;
+  --color-accent-deep: #D4C090;
+
+  --color-text-primary: #E8E0D4;
+  --color-text-secondary: rgba(255, 255, 255, 0.55);
+  --color-text-muted: rgba(255, 255, 255, 0.30);
+
+  --font-display: 'Fraunces', 'PingFang SC', 'Hiragino Sans GB', serif;
+  --font-body: 'Instrument Sans', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Paper grain overlay (DESIGN.md §Paper Grain) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/paper-grain.png');
+  background-repeat: repeat;
+  opacity: 0.10;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+}
+
+/* Focus visible (a11y) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Skip-to-content link (a11y) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Breathing animation (Moon) */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); filter: brightness(0.95); }
+  50% { transform: scale(1.03); filter: brightness(1.05); }
+}
+.animate-breathe {
+  animation: breathe 5s ease-in-out infinite;
+}
+
+/* Twinkle animations (Stars) — 4 variants for stagger */
+@keyframes twinkle-1 { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.6; } }
+@keyframes twinkle-2 { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.55; } }
+@keyframes twinkle-3 { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.5; } }
+@keyframes twinkle-4 { 0%, 100% { opacity: 0.05; } 50% { opacity: 0.45; } }
+.twinkle-1 { animation: twinkle-1 4s ease-in-out infinite; }
+.twinkle-2 { animation: twinkle-2 6s ease-in-out infinite; }
+.twinkle-3 { animation: twinkle-3 5s ease-in-out infinite; }
+.twinkle-4 { animation: twinkle-4 7s ease-in-out infinite; }
+
+/* Scroll reveal (used by ScrollReveal.astro) */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal-init { opacity: 1; transform: none; }
+}
+
+/* Glass card */
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 28px;
+}
