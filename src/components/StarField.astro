@@ -1,0 +1,44 @@
+---
+// Pure CSS star field. Generates 22 randomly-positioned stars
+// at build time using a deterministic seed so layout doesn't shift.
+
+const STAR_COUNT = 22;
+const seed = 42;
+
+function pseudoRandom(i: number) {
+  const x = Math.sin(seed + i * 137.5) * 10000;
+  return x - Math.floor(x);
+}
+
+const stars = Array.from({ length: STAR_COUNT }, (_, i) => ({
+  top: pseudoRandom(i * 2) * 100,
+  left: pseudoRandom(i * 2 + 1) * 100,
+  size: pseudoRandom(i * 3) > 0.85 ? 3 : pseudoRandom(i * 3) > 0.5 ? 2 : 1,
+  twinkle: (i % 4) + 1,
+  delay: pseudoRandom(i * 5) * 8,
+}));
+---
+
+<div class="star-field" aria-hidden="true">
+  {stars.map((s) => (
+    <span
+      class={`star twinkle-${s.twinkle}`}
+      style={`top:${s.top}%;left:${s.left}%;width:${s.size}px;height:${s.size}px;animation-delay:${s.delay}s;`}
+    />
+  ))}
+</div>
+
+<style>
+  .star-field {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: #FFF8E8;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 240, 200, 0.6);
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import '../styles/global.css';
+import StarField from '../components/StarField.astro';
+
+interface Props {
+  htmlLang: string;
+  title: string;
+  description: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogUrl: string;
+  ogImage?: string;
+  hreflangEn: string;
+  hreflangZh: string;
+  canonical: string;
+  skipLinkLabel: string;
+}
+
+const {
+  htmlLang,
+  title,
+  description,
+  ogTitle,
+  ogDescription,
+  ogUrl,
+  ogImage = 'https://bakuai.app/og-image.png',
+  hreflangEn,
+  hreflangZh,
+  canonical,
+  skipLinkLabel,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="alternate" hreflang="en" href={hreflangEn} />
+    <link rel="alternate" hreflang="zh" href={hreflangZh} />
+    <link rel="alternate" hreflang="x-default" href={hreflangEn} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">{skipLinkLabel}</a>
+    <StarField />
+    <main id="main-content">
+      <slot />
+    </main>
+  </body>
+</html>
