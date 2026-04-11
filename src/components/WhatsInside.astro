@@ -1,0 +1,83 @@
+---
+import FeatureCard from './FeatureCard.astro';
+
+interface Feature {
+  icon: string;
+  iconAlt: string;
+  title: string;
+  body: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  anchorIllustration: string;
+  anchorIllustrationAlt: string;
+  features: Feature[];
+}
+
+const { sectionTitle, anchorIllustration, anchorIllustrationAlt, features } = Astro.props;
+---
+
+<section class="inside-section">
+  <h2 class="section-title">{sectionTitle}</h2>
+
+  <div class="anchor-wrap">
+    <img
+      src={`/illustrations/${anchorIllustration}.png`}
+      alt={anchorIllustrationAlt}
+      width="280"
+      height="280"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="feature-list">
+    {features.map((f) => (
+      <FeatureCard
+        icon={f.icon}
+        iconAlt={f.iconAlt}
+        title={f.title}
+        body={f.body}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .inside-section {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 48;
+    text-align: center;
+    color: var(--color-text-primary);
+    margin: 0 0 32px;
+  }
+
+  .anchor-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .anchor-wrap img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 24px rgba(255, 208, 128, 0.15));
+  }
+
+  .feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+</style>
