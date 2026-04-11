@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "sync-legal": "node scripts/sync-legal.mjs",
-    "gen-illustrations": "node scripts/generate-illustrations.mjs"
+    "gen-illustrations": "node scripts/generate-illustrations.mjs",
+    "update-metrics": "node scripts/update-metrics.mjs"
   },
   "dependencies": {
     "@google/genai": "^1.49.0",
