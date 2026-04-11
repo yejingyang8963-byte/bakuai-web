@@ -1,0 +1,127 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  sectionTitle: string;
+  illustration: string;
+  illustrationAlt: string;
+  items: FAQItem[];
+}
+
+const { sectionTitle, illustration, illustrationAlt, items } = Astro.props;
+---
+
+<section class="faq-section">
+  <h2 class="section-title">{sectionTitle}</h2>
+
+  <div class="faq-illustration">
+    <img
+      src={`/illustrations/${illustration}.png`}
+      alt={illustrationAlt}
+      width="180"
+      height="180"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="faq-list">
+    {items.map((item) => (
+      <details class="faq-item">
+        <summary class="faq-question">{item.question}</summary>
+        <p class="faq-answer">{item.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 96px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    font-variation-settings: "opsz" 48;
+    text-align: center;
+    color: var(--color-text-primary);
+    margin: 0 0 32px;
+  }
+
+  .faq-illustration {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .faq-illustration img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    transition: background 250ms ease-out;
+  }
+
+  .faq-item[open] {
+    background: var(--color-surface-hover);
+  }
+
+  .faq-question {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 32px;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    transition: transform 250ms ease-out;
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 16px 0 0;
+  }
+</style>
