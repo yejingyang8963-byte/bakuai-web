@@ -6,9 +6,10 @@ interface Props {
   cta: string;
   ctaSubtext: string;
   moonAlt: string;
+  appStoreUrl?: string;
 }
 
-const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.props;
+const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt, appStoreUrl } = Astro.props;
 ---
 
 <section class="hero">
@@ -32,9 +33,15 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
 
     <p class="subtitle">{subtitle}</p>
 
-    <button type="button" class="cta-button" disabled aria-disabled="true">
-      {cta}
-    </button>
+    {appStoreUrl ? (
+      <a href={appStoreUrl} class="cta-button cta-active" target="_blank" rel="noopener noreferrer">
+        <img src="/app-store-badge.svg" alt={cta} class="app-store-badge" width="180" height="60" />
+      </a>
+    ) : (
+      <button type="button" class="cta-button" disabled aria-disabled="true">
+        {cta}
+      </button>
+    )}
     <p class="cta-subtext">{ctaSubtext}</p>
   </div>
 </section>
@@ -122,6 +129,24 @@ const { titleLine1, titleLine2, subtitle, cta, ctaSubtext, moonAlt } = Astro.pro
     cursor: not-allowed;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+  }
+
+  .cta-active {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .cta-active:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+
+  .app-store-badge {
+    height: 54px;
+    width: auto;
   }
 
   .cta-subtext {
