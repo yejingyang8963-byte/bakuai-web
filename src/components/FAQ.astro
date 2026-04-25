@@ -1,127 +1,37 @@
 ---
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-interface Props {
-  sectionTitle: string;
-  illustration: string;
-  illustrationAlt: string;
-  items: FAQItem[];
-}
-
-const { sectionTitle, illustration, illustrationAlt, items } = Astro.props;
+// src/components/FAQ.astro — pure CSS <details> for instant interaction.
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'faq');
 ---
-
-<section class="faq-section">
-  <h2 class="section-title">{sectionTitle}</h2>
-
-  <div class="faq-illustration">
-    <img
-      src={`/illustrations/${illustration}.webp`}
-      alt={illustrationAlt}
-      width="180"
-      height="180"
-      loading="lazy"
-    />
+<section id="faq" class="relative px-12" style="padding:100px 48px;">
+  <div class="absolute" style="top:40px;right:40px;width:140px;height:140px;opacity:.7">
+    <img src="/illustrations/14-teacup-book.webp" alt="" aria-hidden="true" loading="lazy" style="width:100%;height:100%;object-fit:contain"/>
   </div>
+  <div class="mx-auto" style="max-width:900px;">
+    <div class="text-[11px] font-semibold uppercase mb-4 tracking-[0.18em]" style="color:#FFD080">{c.eyebrow}</div>
+    <h2 class="font-display font-light m-0 mb-14" style="font-size:50px;line-height:1.05;letter-spacing:-0.02em;color:#E8E0D4">{c.sectionTitle}</h2>
 
-  <div class="faq-list">
-    {items.map((item) => (
-      <details class="faq-item">
-        <summary class="faq-question">{item.question}</summary>
-        <p class="faq-answer">{item.answer}</p>
-      </details>
-    ))}
+    <div>
+      {c.items?.map((it: any, i: number) => (
+        <details class="faq-item" open={i===0} style="border-top:1px solid rgba(255,255,255,.08);padding:4px 0;">
+          <summary class="flex justify-between items-center gap-6 cursor-pointer list-none"
+            style="padding:24px 0;color:#E8E0D4;">
+            <span class="font-display font-normal text-[20px]">{it.question}</span>
+            <span class="rounded-full flex items-center justify-center shrink-0 faq-plus"
+              style="width:32px;height:32px;border:1px solid rgba(255,208,128,.3);color:#FFD080;font-size:16px;transition:transform 300ms;">+</span>
+          </summary>
+          <p class="text-[15px] m-0" style="line-height:1.7;color:rgba(232,224,212,.72);margin-bottom:28px;padding-right:48px;">{it.answer}</p>
+        </details>
+      ))}
+      <div style="border-top:1px solid rgba(255,255,255,.08)"/>
+    </div>
   </div>
 </section>
 
 <style>
-  .faq-section {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 96px 20px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    font-variation-settings: "opsz" 48;
-    text-align: center;
-    color: var(--color-text-primary);
-    margin: 0 0 32px;
-  }
-
-  .faq-illustration {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-
-  .faq-illustration img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-  }
-
-  .faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .faq-item {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 16px;
-    padding: 20px 24px;
-    transition: background 250ms ease-out;
-  }
-
-  .faq-item[open] {
-    background: var(--color-surface-hover);
-  }
-
-  .faq-question {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    cursor: pointer;
-    list-style: none;
-    position: relative;
-    padding-right: 32px;
-  }
-
-  .faq-question::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-family: var(--font-mono);
-    font-size: 1.5rem;
-    color: var(--color-accent);
-    transition: transform 250ms ease-out;
-  }
-
-  .faq-item[open] .faq-question::after {
-    content: '−';
-  }
-
-  .faq-answer {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-    margin: 16px 0 0;
-  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item[open] .faq-plus { transform: rotate(45deg); }
 </style>

@@ -1,82 +1,55 @@
 ---
+// src/layouts/BaseLayout.astro
 import '../styles/global.css';
-import StarField from '../components/StarField.astro';
-
-interface Props {
-  htmlLang: string;
-  title: string;
-  description: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogUrl: string;
-  ogImage?: string;
-  hreflangEn: string;
-  hreflangZh: string;
-  canonical: string;
-  skipLinkLabel: string;
-  preloadHeroImage?: boolean;
-}
-
-const {
-  htmlLang,
-  title,
-  description,
-  ogTitle,
-  ogDescription,
-  ogUrl,
-  ogImage = 'https://bakuai.app/og-image.png',
-  hreflangEn,
-  hreflangZh,
-  canonical,
-  skipLinkLabel,
-  preloadHeroImage = false,
-} = Astro.props;
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const meta = loadContent(lang, 'meta');
+// meta.yml: htmlLang, title, description, keywords, ogTitle, ogDescription
+const ldApp = {
+  '@context':'https://schema.org','@type':'MobileApplication',
+  name:'Baku AI', operatingSystem:'iOS 17+', applicationCategory:'KidsApplication',
+  description: meta.description,
+  offers:{ '@type':'Offer', price:'19.99', priceCurrency:'USD' },
+  author:{ '@type':'Person', name:'Jingyang Ye' },
+  featureList:['100% offline after first launch','Gemma 4 on-device AI','English + Simplified Chinese + Spanish','12-language safety filter','Zero data collection','No accounts, no subscriptions'],
+};
+const faq = loadContent(lang, 'faq');
+const ldFaq = {
+  '@context':'https://schema.org','@type':'FAQPage',
+  mainEntity: (faq.items || []).map((it: any) => ({ '@type':'Question', name: it.question, acceptedAnswer: { '@type':'Answer', text: it.answer } })),
+};
 ---
-
 <!doctype html>
-<html lang={htmlLang}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
+<html lang={meta.htmlLang || lang}>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{meta.title}</title>
+  <meta name="description" content={meta.description}/>
+  {meta.keywords && <meta name="keywords" content={meta.keywords}/>}
 
-    <title>{title}</title>
-    <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
-    <meta property="og:title" content={ogTitle} />
-    <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:url" content={ogUrl} />
-    <meta property="og:type" content="website" />
+  <meta property="og:title"       content={meta.ogTitle || meta.title}/>
+  <meta property="og:description" content={meta.ogDescription || meta.description}/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:image"       content="/og-image.png"/>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={ogTitle} />
-    <meta name="twitter:image" content={ogImage} />
+  <link rel="alternate" hreflang="en" href="https://bakuai.app/"/>
+  <link rel="alternate" hreflang="zh" href="https://bakuai.app/zh/"/>
+  <link rel="alternate" hreflang="es" href="https://bakuai.app/es/"/>
+  <link rel="alternate" hreflang="x-default" href="https://bakuai.app/"/>
 
-    <link rel="alternate" hreflang="en" href={hreflangEn} />
-    <link rel="alternate" hreflang="zh" href={hreflangZh} />
-    <link rel="alternate" hreflang="x-default" href={hreflangEn} />
-    <link rel="canonical" href={canonical} />
-
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    {preloadHeroImage && (
-      <link
-        rel="preload"
-        as="image"
-        href="/illustrations/01-hero-moon.webp"
-        fetchpriority="high"
-      />
-    )}
-
-    <meta name="generator" content={Astro.generator} />
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">{skipLinkLabel}</a>
-    <StarField />
-    <main id="main-content">
-      <slot />
-    </main>
-  </body>
+  <script type="application/ld+json" set:html={JSON.stringify(ldApp)}/>
+  <script type="application/ld+json" set:html={JSON.stringify(ldFaq)}/>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <main id="main">
+    <slot/>
+  </main>
+</body>
 </html>

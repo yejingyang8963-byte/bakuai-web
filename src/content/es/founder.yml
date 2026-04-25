@@ -1,0 +1,20 @@
+eyebrow: "DEL AUTOR"
+illustration: "15-founder-portrait"
+illustrationAlt: "Un padre lee a un niño junto a la ventana, de noche"
+paragraphs:
+  - "Soy Jingyang. Le leo a mi hija cada noche. Tras la octogésima relectura del mismo libro, empecé a preguntarme si el teléfono podría… escribir uno nuevo."
+  - "Después me preocupó algo: la mayoría de apps infantiles mandan todo a la nube en silencio, registran cada prompt, envían notificaciones, y se esfuerzan en retener al niño frente a la pantalla."
+  - "Yo quería la app opuesta. Pulsar, escuchar, dormir. Nada sale del teléfono. Sin suscripción. Sin trucos."
+  - "La hice. Hoy es la app favorita de mi hija, y la que más confianza me da."
+stmt1: "100% en dispositivo · 0 datos recogidos · 1 persona la hizo"
+stmt2: "Si eso cambia algún día, lo escribiré en la portada."
+signature: "— Jingyang Ye, Baku AI"
+signatureLoc: "Hecha en San Francisco, 2025–2026"
+metricsTitle: "DATOS, NO PROMESAS"
+metrics:
+  - ["100%", "en dispositivo"]
+  - ["0", "rastreadores"]
+  - ["1", "persona"]
+  - ["280MB", "tamaño app"]
+  - ["12", "idiomas seg."]
+  - ["$5.99", "pago único"]

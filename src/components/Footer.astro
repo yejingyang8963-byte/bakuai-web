@@ -1,144 +1,45 @@
 ---
-import LangSwitcher from './LangSwitcher.astro';
-
-interface Props {
-  currentLang: 'en' | 'zh';
-  panoramaIllustration: string;
-  panoramaIllustrationAlt: string;
-  brand: string;
-  tagline: string;
-  linkPrivacy: string;
-  linkTerms: string;
-  linkEmail: string;
-  copyright: string;
-  langSwitcherEN: string;
-  langSwitcherZH: string;
-  privacyHref: string;
-  termsHref: string;
-}
-
-const {
-  currentLang,
-  panoramaIllustration,
-  panoramaIllustrationAlt,
-  brand,
-  tagline,
-  linkPrivacy,
-  linkTerms,
-  linkEmail,
-  copyright,
-  langSwitcherEN,
-  langSwitcherZH,
-  privacyHref,
-  termsHref,
-} = Astro.props;
+// src/components/Footer.astro
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'footer');
+// footer.yml: panoramaIllustration, brand, finalLine1, finalLineEm, cta, ctaSub, tagline, privacyLabel, termsLabel, emailLabel, copyright
 ---
-
-<footer class="footer">
-  <div class="footer-panorama">
-    <img
-      src={`/illustrations/${panoramaIllustration}.webp`}
-      alt={panoramaIllustrationAlt}
-      width="1024"
-      height="512"
-      loading="lazy"
-    />
+<footer id="download" class="relative" style="padding-top:140px">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <img src={`/illustrations/${c.panoramaIllustration}.webp`} alt="" aria-hidden="true" loading="lazy"
+      style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:1600px;opacity:.35;mask-image:linear-gradient(180deg,transparent,black 40%,black 100%);-webkit-mask-image:linear-gradient(180deg,transparent,black 40%,black 100%);"/>
   </div>
 
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <p class="brand-name">{brand}</p>
-      <p class="brand-tagline">{tagline}</p>
+  <div class="relative mx-auto text-center px-12" style="max-width:900px">
+    <h2 class="font-display font-light m-0 mb-6" style="font-size:64px;line-height:1.05;letter-spacing:-0.025em;color:#E8E0D4">
+      {c.finalLine1}<br/><em style="color:#FFD080">{c.finalLineEm}</em>
+    </h2>
+    <a href="#" class="inline-flex items-center gap-3.5 rounded-[18px] no-underline font-semibold mt-8"
+      style="padding:20px 32px;font-size:17px;color:#050510;background:linear-gradient(180deg,#FFE0A0,#FFD080);box-shadow:0 16px 50px rgba(255,208,128,.3)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+      {c.cta}
+    </a>
+    <div class="mt-4 text-[13px]" style="color:rgba(232,224,212,.5)">{c.ctaSub}</div>
+  </div>
+
+  <div class="relative mx-auto flex justify-between items-center flex-wrap gap-5"
+    style="max-width:1200px;margin-top:260px;padding:32px 48px 0;border-top:1px solid rgba(255,255,255,.08)">
+    <div class="flex items-center gap-3">
+      <span class="block rounded-full overflow-hidden"
+        style="width:32px;height:32px;border:1px solid rgba(255,208,128,.3);box-shadow:0 0 14px rgba(255,208,128,.3);">
+        <img src="/apple-touch-icon.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      </span>
+      <span class="font-display font-medium text-[18px]">Baku<span style="color:#FFD080">.</span>ai</span>
+      <span class="font-display italic ml-4 text-[13px]" style="color:rgba(232,224,212,.5)">{c.tagline}</span>
     </div>
-
-    <nav class="footer-links" aria-label="Footer">
-      <a href={privacyHref}>{linkPrivacy}</a>
-      <span class="link-divider" aria-hidden="true">·</span>
-      <a href={termsHref}>{linkTerms}</a>
-      <span class="link-divider" aria-hidden="true">·</span>
-      <a href="mailto:Metaphoria1688@gmail.com">{linkEmail}</a>
-    </nav>
-
-    <p class="footer-copyright">{copyright}</p>
-
-    <LangSwitcher currentLang={currentLang} enLabel={langSwitcherEN} zhLabel={langSwitcherZH} />
+    <div class="flex gap-6 text-[13px]" style="color:rgba(232,224,212,.55)">
+      <a href={`/privacy-policy${lang==='en'?'':`.${lang}`}`} class="no-underline" style="color:inherit">{c.privacyLabel}</a>
+      <a href={`/terms-of-service${lang==='en'?'':`.${lang}`}`} class="no-underline" style="color:inherit">{c.termsLabel}</a>
+      <a href="mailto:hello@bakuai.app" class="no-underline" style="color:inherit">{c.emailLabel}</a>
+    </div>
   </div>
+  <div class="relative text-center text-xs" style="padding-bottom:40px;color:rgba(232,224,212,.4)">{c.copyright}</div>
 </footer>
-
-<style>
-  .footer {
-    margin-top: 96px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .footer-panorama {
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .footer-panorama img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .footer-inner {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 48px 20px 64px;
-    text-align: center;
-  }
-
-  .footer-brand {
-    margin-bottom: 32px;
-  }
-
-  .brand-name {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin: 0;
-    letter-spacing: -0.02em;
-  }
-
-  .brand-tagline {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    margin: 4px 0 0;
-  }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .footer-links a {
-    font-family: var(--font-body);
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    transition: color 200ms ease-out;
-  }
-
-  .footer-links a:hover {
-    color: var(--color-accent);
-  }
-
-  .link-divider {
-    color: var(--color-text-muted);
-  }
-
-  .footer-copyright {
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    margin: 0 0 24px;
-  }
-</style>

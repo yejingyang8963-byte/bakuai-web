@@ -1,0 +1,38 @@
+---
+// src/components/Inside.astro
+import StarField from './StarField.astro';
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'inside');
+// inside.yml: eyebrow, sectionTitle, anchorIllustration, anchorIllustrationAlt, features:[{illustration,title,body}]
+---
+<section id="inside" class="relative px-12" style="padding:100px 48px;">
+  <StarField count={25} seed={42} />
+  <div class="mx-auto grid items-center" style="max-width:1200px;grid-template-columns:1fr 1.1fr;gap:72px;">
+    <div>
+      <img src={`/illustrations/${c.anchorIllustration}.webp`} alt={c.anchorIllustrationAlt || ''} loading="lazy"
+        class="rounded-3xl" style="width:100%;filter:drop-shadow(0 20px 60px rgba(0,0,0,.5))" />
+    </div>
+    <div>
+      <div class="text-[11px] font-semibold uppercase mb-4 tracking-[0.18em]" style="color:#FFD080">{c.eyebrow}</div>
+      <h2 class="font-display font-light m-0 mb-11" style="font-size:50px;line-height:1.05;letter-spacing:-0.02em;color:#E8E0D4">{c.sectionTitle}</h2>
+      <div class="flex flex-col">
+        {c.features?.map((f: any, i: number) => (
+          <div class="flex gap-5 items-center"
+            style={`padding:18px 0;${i===0 ? 'border-top:1px solid rgba(255,255,255,.08);':''}border-bottom:1px solid rgba(255,255,255,.08);`}>
+            <div class="rounded-xl shrink-0 overflow-hidden" style="width:56px;height:56px;background:rgba(255,208,128,.05)">
+              <img src={`/illustrations/${f.illustration}.webp`} alt={f.illustrationAlt || ''} loading="lazy"
+                style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <div class="flex-1">
+              <div class="font-display font-medium" style="font-size:18px;color:#E8E0D4;margin-bottom:2px">{f.title}</div>
+              <div class="text-[13.5px]" style="line-height:1.5;color:rgba(232,224,212,.6)">{f.body}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,10 @@
+label: "QUICK ANSWER"
+question: "What is Baku AI?"
+answer: "Baku AI is an iPhone app that generates a different bedtime story every night, fully on-device with Google's Gemma 4 model. Choose a wish, tap once, and Baku reads in a soft voice for 5–8 minutes. There is no internet connection, no account, no advertising, no data collection. One purchase ($5.99), keep it forever."
+stats:
+  - ["MODEL", "Gemma 4 (on-device)"]
+  - ["NETWORK", "Offline after install"]
+  - ["LANGUAGES", "EN · 中文 · ES"]
+  - ["AGE RANGE", "3 – 8 years"]
+  - ["LENGTH", "5 – 8 min / story"]
+  - ["PRICE", "$5.99 lifetime"]

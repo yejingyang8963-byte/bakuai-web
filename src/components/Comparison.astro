@@ -1,0 +1,39 @@
+---
+// src/components/Comparison.astro
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'comparison');
+// comparison.yml: eyebrow, sectionTitle, cols:[3], rows:[[label,baku,typical]]
+---
+<section class="px-12" style="padding:100px 48px;">
+  <div class="mx-auto" style="max-width:1100px;">
+    <div class="text-[11px] font-semibold uppercase mb-4 tracking-[0.18em]" style="color:#FFD080">{c.eyebrow}</div>
+    <h2 class="font-display font-light m-0 mb-12" style="font-size:50px;line-height:1.05;letter-spacing:-0.02em;color:#E8E0D4">{c.sectionTitle}</h2>
+
+    <div class="rounded-[22px] overflow-hidden"
+      style="border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);backdrop-filter:blur(10px);">
+      <div class="grid font-semibold uppercase tracking-[0.1em]"
+        style="grid-template-columns:1.4fr 1fr 1fr;padding:20px 28px;background:rgba(255,208,128,.05);border-bottom:1px solid rgba(255,255,255,.08);font-size:12px;color:rgba(232,224,212,.6)">
+        <div>{c.cols?.[0]}</div>
+        <div style="color:#FFD080">{c.cols?.[1]}</div>
+        <div>{c.cols?.[2]}</div>
+      </div>
+      {c.rows?.map((row: string[], i: number) => (
+        <div class="grid items-center"
+          style={`grid-template-columns:1.4fr 1fr 1fr;padding:20px 28px;${i < (c.rows.length - 1) ? 'border-bottom:1px solid rgba(255,255,255,.06);':''}`}>
+          <div class="font-display font-normal text-[15px]" style="color:rgba(232,224,212,.85)">{row[0]}</div>
+          <div class="flex items-center gap-2.5 text-[14.5px] font-medium" style="color:#FFE9BE">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFD080" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            {row[1]}
+          </div>
+          <div class="flex items-center gap-2.5 text-[14.5px]" style="color:rgba(232,224,212,.5)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(232,224,212,.4)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            {row[2]}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+eyebrow: "HOW IT WORKS"
+sectionTitle: "Three taps to a story."
+sub: "From wish to first sentence in under five seconds. After that the screen goes dark and you can put the phone down."
+steps:
+  - n: "01"
+    title: "Pick a wish"
+    body: "From a curated list — A friendly dragon. A lost moon. Grandma's garden. You can also pre-write your child's name and favourite things in Settings, and Baku will weave them in."
+  - n: "02"
+    title: "Baku composes"
+    body: "Gemma 4 runs on the Neural Engine and writes a 5–8 minute fairytale, on your phone. No server roundtrip. No internet. Even the safety filter is local."
+  - n: "03"
+    title: "Baku reads"
+    body: "Apple's natural voice narrates softly while a slow page-turn paces the story. The screen dims to almost-black so it doesn't keep your child awake."

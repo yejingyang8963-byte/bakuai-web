@@ -1,0 +1,37 @@
+eyebrow: "ECHA UN VISTAZO"
+sectionTitle: "Mira a Baku tejer un cuento, en tiempo real."
+sub: "Elige un deseo a la izquierda. Abajo está el cuento que Baku compuso y leyó en voz alta, en el dispositivo, mientras esperabas."
+wishLabel: "DESEO DE ESTA NOCHE"
+wishes:
+  - "Un dragón amable y la luna perdida"
+  - "El jardín de la abuela tras medianoche"
+  - "Un marinero diminuto en un mar de taza"
+model: "Gemma 4 · en dispositivo"
+status:
+  - "Escuchando el deseo…"
+  - "Componiendo el cuento…"
+  - "Leyendo en voz alta"
+story:
+  -
+    - "En la colina más silenciosa del país de Casi-Sueño vivía un dragón pequeñito llamado Pip — verde como una tetera, tibio como un bolsillo."
+    - "Una noche la luna no vino."
+    - "Pip soltó tres nubecitas curiosas y partió a buscarla, con un farol y una palabra amable para cada sombra."
+    - "La encontró enredada en un sauce, avergonzada y un poco soñolienta."
+    - "La llevó a casa en su espalda, despacio, para no despertar al coro de los grillos, y el país de Casi-Sueño por fin se durmió."
+  -
+    - "Cuando el reloj cruzó las doce, los tomates de la abuela empezaron a tararear."
+    - "Los guisantes se tomaron del brazo. Los rábanos aplaudieron bajito, para no ser oídos."
+    - "Una niña en zapatillas salió de puntillas y todo el jardín se inclinó al saludarla."
+    - "Hicieron una pequeña fiesta bajo la luna — tres canciones, dos bailes, un pastel."
+    - "Volvió a la cama empolvada de luz de estrellas y soñó con el verano próximo."
+  -
+    - "En una taza azul con una mella, un marinero más bajo que un dedal ajustaba su vela de papel."
+    - "Esta noche el mar-platillo estaba en calma y un cubo de azúcar pasó como un iceberg."
+    - "Saludó a un delfín de vapor y a una ballena de canela."
+    - "Cuando silbó la tetera, se tocó la gorra ante la luna."
+    - "Y el capitán de la taza navegó suavemente al puerto, y al sueño."
+footChip:
+  - "En dispositivo"
+  - "Sin internet"
+  - "Sin datos enviados"
+note: "Generado localmente en el Apple Neural Engine. Un mismo deseo nunca produce el mismo cuento — Baku lo crea desde cero."

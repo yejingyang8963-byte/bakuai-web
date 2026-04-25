@@ -1,0 +1,37 @@
+eyebrow: "A PEEK INSIDE"
+sectionTitle: "Watch Baku spin a fairytale, in real time."
+sub: "Pick a wish on the left. Below is the story Baku composed and read out loud, on the device, while you waited."
+wishLabel: "TONIGHT'S WISH"
+wishes:
+  - "A friendly dragon and the lost moon"
+  - "Grandma's garden after midnight"
+  - "Tiny sailor on a teacup sea"
+model: "Gemma 4 · on-device"
+status:
+  - "Listening to the wish…"
+  - "Composing the tale…"
+  - "Now reading aloud"
+story:
+  -
+    - "Once, on the quietest hill in the country of Almost-Sleep, lived a small dragon called Pip — green as a teacup, warm as a pocket."
+    - "One night the moon did not come."
+    - "Pip puffed three little clouds of curious smoke and set off to find her, with a lantern and a kind word for every shadow."
+    - "He found her tangled in a willow tree, embarrassed and a little sleepy."
+    - "He carried her home on his back, slowly, so as not to wake the cricket choir, and the country of Almost-Sleep finally fell asleep."
+  -
+    - "When the clock crept past twelve, Grandma's tomatoes began to hum."
+    - "The peas linked arms. The radishes clapped quietly so as not to be heard."
+    - "A small girl in slippers tiptoed out, and the whole garden bowed in greeting."
+    - "They held a tiny celebration under the moon — three songs, two dances, one pie."
+    - "She walked back to bed dusted with starlight, and dreamt of next summer."
+  -
+    - "In a chipped blue teacup, a sailor no taller than a thimble adjusted his paper sail."
+    - "Tonight the saucer-sea was calm, and a single sugar cube floated by like an iceberg."
+    - "He greeted a dolphin made of steam and a whale made of cinnamon."
+    - "When the kettle whistled, he tipped his cap to the moon."
+    - "And the captain of the teacup sailed gently back to harbour, and to sleep."
+footChip:
+  - "On-device"
+  - "No internet"
+  - "No data sent"
+note: "Generated locally on Apple Neural Engine. Same wish never produces the same story twice — Baku composes from scratch."

@@ -1,0 +1,39 @@
+---
+// src/components/Founder.astro
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'founder');
+// founder.yml: eyebrow, illustration, illustrationAlt, paragraphs:[], stmt1, stmt2, signature, signatureLoc, metricsTitle, metrics:[[value,label]]
+---
+<section id="founder" class="px-12" style="padding:120px 48px;">
+  <div class="mx-auto grid" style="max-width:1100px;grid-template-columns:1.5fr 1fr;gap:80px;">
+    <div>
+      <div class="text-[11px] font-semibold uppercase mb-7 tracking-[0.18em]" style="color:#FFD080">{c.eyebrow}</div>
+      <div class="font-display italic font-light text-[20px]" style="line-height:1.65;color:#E8E0D4">
+        {c.paragraphs?.map((p: string) => <p style="margin:0 0 24px">{p}</p>)}
+        <p style="margin:32px 0 4px;color:#FFD080;font-style:normal;font-size:17px">{c.stmt1}</p>
+        <p style="margin:0;color:rgba(232,224,212,.6);font-style:italic;font-size:17px">{c.stmt2}</p>
+        <p style="margin:44px 0 0;font-size:16px;font-style:normal;color:#E8E0D4">{c.signature}</p>
+        <p style="margin:4px 0 0;font-size:13px;font-style:normal;color:rgba(232,224,212,.5)">{c.signatureLoc}</p>
+      </div>
+    </div>
+    <div>
+      <img src={`/illustrations/${c.illustration}.webp`} alt={c.illustrationAlt || ''} loading="lazy"
+        class="rounded-[20px]" style="width:100%;margin-bottom:28px" />
+      <div class="rounded-[18px]"
+        style="padding:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);">
+        <div class="text-[11px] font-semibold uppercase mb-4 tracking-[0.12em]" style="color:rgba(255,208,128,.9)">{c.metricsTitle}</div>
+        <div class="grid grid-cols-3" style="gap:20px 12px">
+          {c.metrics?.map(([v, l]: [string, string]) => (
+            <div>
+              <div class="font-display font-medium" style={`font-size:28px;line-height:1;color:${v==='0' ? '#FFD080' : '#E8E0D4'}`}>{v}</div>
+              <div class="text-[11px] mt-1" style="color:rgba(232,224,212,.55)">{l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

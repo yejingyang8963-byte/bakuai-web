@@ -1,0 +1,11 @@
+eyebrow: "HONESTLY COMPARED"
+sectionTitle: "How Baku is different."
+cols: ["", "Baku AI", "Typical kids' AI app"]
+rows:
+  - ["Where the AI runs", "On your iPhone", "Cloud server"]
+  - ["Works on a plane / no Wi-Fi", "Yes", "No"]
+  - ["Account / login required", "None", "Required"]
+  - ["Recurring subscription", "$5.99 lifetime", "$5–10 / month"]
+  - ["Ads / in-app purchases", "None", "Often"]
+  - ["Data leaves the phone", "Never", "Voice + prompts"]
+  - ["Open chat input for kids", "No (curated wishes)", "Often yes"]

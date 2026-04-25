@@ -1,0 +1,29 @@
+/* Append to src/styles/global.css */
+
+/* Drifting mist (Hero ambient layer) */
+@keyframes mistDrift1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.55; }
+  33%  { transform: translate3d(-180px, 80px, 0) scale(1.18);   opacity: 0.95; }
+  66%  { transform: translate3d(120px, -60px, 0) scale(1.10);   opacity: 0.7; }
+  100% { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.55; }
+}
+@keyframes mistDrift2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.4; }
+  50%  { transform: translate3d(260px, 110px, 0) scale(1.22);   opacity: 0.85; }
+  100% { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.4; }
+}
+@keyframes mistDrift3 {
+  0%   { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.3; }
+  40%  { transform: translate3d(-150px, -100px, 0) scale(1.12); opacity: 0.7; }
+  80%  { transform: translate3d(180px, 60px, 0) scale(1.18);    opacity: 0.55; }
+  100% { transform: translate3d(0, 0, 0) scale(1);              opacity: 0.3; }
+}
+.hero-mist { will-change: transform, opacity; }
+.hero-mist-1 { animation: mistDrift1 22s ease-in-out infinite; }
+.hero-mist-2 { animation: mistDrift2 28s ease-in-out infinite; animation-delay: -7s; }
+.hero-mist-3 { animation: mistDrift3 26s ease-in-out infinite; animation-delay: -14s; }
+.hero-mist-4 { animation: mistDrift2 32s ease-in-out infinite; animation-delay: -19s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mist-1, .hero-mist-2, .hero-mist-3, .hero-mist-4 { animation: none; opacity: 0.6; }
+}

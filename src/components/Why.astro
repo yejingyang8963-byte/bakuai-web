@@ -1,0 +1,34 @@
+---
+// src/components/Why.astro
+import StarField from './StarField.astro';
+import type { Lang } from '../lib/i18n';
+import { loadContent } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = loadContent(lang, 'why');
+// why.yml: eyebrow, sectionTitle (use \n for line break), cards: [{illustration,title,body}]
+---
+<section id="why" class="relative px-12" style="padding:120px 48px 80px;">
+  <StarField count={20} seed={22} />
+  <div class="mx-auto" style="max-width:1200px">
+    <div class="text-[11px] font-semibold uppercase mb-4 tracking-[0.18em]" style="color:#FFD080">{c.eyebrow}</div>
+    <h2 class="font-display font-light m-0 mb-[72px] whitespace-pre-line"
+      style="font-size:58px;line-height:1.05;letter-spacing:-0.02em;color:#E8E0D4">{c.sectionTitle}</h2>
+
+    <div class="grid grid-cols-2 gap-7">
+      {c.cards?.map((card: any) => (
+        <div class="rounded-3xl flex gap-7 items-start"
+          style="padding:36px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(10px);">
+          <div class="rounded-2xl shrink-0 overflow-hidden" style="width:104px;height:104px;background:rgba(255,208,128,.05)">
+            <img src={`/illustrations/${card.illustration}.webp`} alt={card.illustrationAlt || ''} loading="lazy"
+              style="width:100%;height:100%;object-fit:cover" />
+          </div>
+          <div>
+            <h3 class="font-display font-medium m-0 mb-2.5" style="font-size:22px;letter-spacing:-0.01em;color:#E8E0D4">{card.title}</h3>
+            <p class="m-0 text-[15px]" style="line-height:1.6;color:rgba(232,224,212,.7)">{card.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

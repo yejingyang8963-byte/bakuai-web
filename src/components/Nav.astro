@@ -1,0 +1,51 @@
+---
+// src/components/Nav.astro
+import type { Lang } from '../lib/i18n';
+import { langPath } from '../lib/i18n';
+export interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const labels = {
+  en: { why: 'Why Baku', inside: 'Inside', how: 'How it works', founder: 'Founder', faq: 'FAQ', dl: 'Download' },
+  zh: { why: '为什么', inside: '功能',   how: '如何工作',     founder: '开发者', faq: '常见问题', dl: '下载' },
+  es: { why: 'Por qué', inside: 'Dentro', how: 'Cómo funciona', founder: 'Autor',  faq: 'FAQ', dl: 'Descargar' },
+}[lang];
+
+const langs: Lang[] = ['en','zh','es'];
+const langLabels: Record<Lang,string> = { en: 'EN', zh: '中文', es: 'ES' };
+---
+<nav class="sticky top-0 z-50 px-12 py-5 flex justify-between items-center"
+  style="background:linear-gradient(180deg,rgba(5,5,16,.95) 0%,rgba(5,5,16,.7) 70%,transparent 100%);backdrop-filter:blur(8px);">
+  <a href={langPath(lang)} class="flex items-center gap-3 no-underline text-text-primary">
+    <span class="block rounded-full overflow-hidden shrink-0"
+      style="width:38px;height:38px;border:1px solid rgba(255,208,128,.35);box-shadow:0 0 18px rgba(255,208,128,.35);">
+      <img src="/apple-touch-icon.png" alt="Baku AI"
+        style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    </span>
+    <span class="font-display text-[22px] font-semibold tracking-tight">Baku<span class="text-accent">.</span>ai</span>
+  </a>
+  <div class="flex items-center gap-7 text-sm" style="color:rgba(255,255,255,.65)">
+    <a href="#why"     class="hover:text-accent transition-colors">{labels.why}</a>
+    <a href="#inside"  class="hover:text-accent transition-colors">{labels.inside}</a>
+    <a href="#how"     class="hover:text-accent transition-colors">{labels.how}</a>
+    <a href="#founder" class="hover:text-accent transition-colors">{labels.founder}</a>
+    <a href="#faq"     class="hover:text-accent transition-colors">{labels.faq}</a>
+
+    <div class="flex gap-[2px] p-[3px] rounded-full"
+      style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);">
+      {langs.map(l => (
+        <a href={langPath(l)}
+          class="px-3 py-1 rounded-full text-xs font-semibold tracking-wider"
+          style={l===lang
+            ? 'background:#FFD080;color:#050510;'
+            : 'color:rgba(255,255,255,.6);'}>
+          {langLabels[l]}
+        </a>
+      ))}
+    </div>
+
+    <a href="#download"
+      class="px-5 py-2.5 rounded-full text-[13px] font-semibold no-underline"
+      style="background:#FFD080;color:#050510;">{labels.dl}</a>
+  </div>
+</nav>

@@ -3,6 +3,8 @@
 @import "@fontsource-variable/fraunces";
 @import "@fontsource-variable/instrument-sans";
 
+@import "./_mist-append.css";
+
 @theme {
   --color-bg-primary: #050510;
   --color-bg-secondary: #0A0A2A;

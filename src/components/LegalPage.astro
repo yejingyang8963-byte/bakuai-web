@@ -13,7 +13,7 @@ interface Props {
   title: string;
   ogUrl: string;
   canonical: string;
-  currentLang: 'en' | 'zh';
+  currentLang: 'en' | 'zh' | 'es';
   privacyHref: string;
   termsHref: string;
 }
@@ -40,37 +40,12 @@ const footer = parse(readFileSync(footerYamlPath, 'utf-8'));
 const skipLinkLabel = currentLang === 'zh' ? '跳转到主要内容' : 'Skip to content';
 ---
 
-<BaseLayout
-  htmlLang={htmlLang}
-  title={title}
-  description={title}
-  ogTitle={title}
-  ogDescription={title}
-  ogUrl={ogUrl}
-  hreflangEn="https://bakuai.app/"
-  hreflangZh="https://bakuai.app/zh/"
-  canonical={canonical}
-  skipLinkLabel={skipLinkLabel}
->
+<BaseLayout lang={currentLang}>
   <article class="legal-article">
     <div set:html={html} />
   </article>
 
-  <Footer
-    currentLang={currentLang}
-    panoramaIllustration={footer.panoramaIllustration}
-    panoramaIllustrationAlt={footer.panoramaIllustrationAlt}
-    brand={footer.brand}
-    tagline={footer.tagline}
-    linkPrivacy={footer.linkPrivacy}
-    linkTerms={footer.linkTerms}
-    linkEmail={footer.linkEmail}
-    copyright={footer.copyright}
-    langSwitcherEN={footer.langSwitcherEN}
-    langSwitcherZH={footer.langSwitcherZH}
-    privacyHref={privacyHref}
-    termsHref={termsHref}
-  />
+  <Footer lang={currentLang} />
 </BaseLayout>
 
 <style is:global>
