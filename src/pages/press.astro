@@ -1,0 +1,101 @@
+---
+// src/pages/press.astro — media kit for journalists
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const SITE = 'https://bakuai.app';
+---
+<BaseLayout lang="en">
+  <Nav lang="en" />
+
+  <article class="mx-auto px-6" style="max-width:880px;padding-top:80px;padding-bottom:80px;color:#E8E0D4;">
+    <header class="mb-12">
+      <div class="text-[12px] uppercase mb-3 tracking-[0.18em]" style="color:#FFD080">PRESS KIT</div>
+      <h1 class="font-display font-light m-0" style="font-size:48px;line-height:1.1;letter-spacing:-0.02em">Baku AI — for journalists</h1>
+      <p class="mt-5 text-[18px]" style="line-height:1.55;color:rgba(232,224,212,.78)">
+        Everything you need on one page. Quotable facts, founder background, high-resolution screenshots, contact info. Nothing behind a form.
+      </p>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">One-line description</h2>
+      <p style="font-size:18px;line-height:1.55;background:rgba(255,208,128,.05);padding:18px 24px;border-left:3px solid #FFD080;border-radius:0 12px 12px 0;">
+        <em>Baku AI is an iPhone bedtime-story app for children ages 3–8 that runs Google's Gemma 4 language model entirely on-device — no internet, no accounts, no data collection. $5.99 one-time purchase.</em>
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">Quick facts</h2>
+      <table style="width:100%;border-collapse:collapse;font-size:15px;">
+        <tbody>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);width:200px;">Launched</td><td style="padding:10px 0;">April 23, 2026 (App Store)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Platform</td><td style="padding:10px 0;">iOS 17+ (iPhone only)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Pricing</td><td style="padding:10px 0;">$5.99 one-time lifetime · optional $0.99/month for Personal Voice</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Languages</td><td style="padding:10px 0;">English, Simplified Chinese, Spanish</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Age range</td><td style="padding:10px 0;">3–8 years</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">AI model</td><td style="padding:10px 0;">Google Gemma 4 E2B (4-bit quantized, ~1.5 GB) via MLX-Swift</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Required hardware</td><td style="padding:10px 0;">iPhone 13 Pro / 14 / newer (≥ 6 GB RAM)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Compliance</td><td style="padding:10px 0;">COPPA + GDPR-K compliant by design (zero data collection)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">App size</td><td style="padding:10px 0;">~280 MB (excluding model)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Built by</td><td style="padding:10px 0;">Jingyang Ye (independent developer, no team, no VC)</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">Built in</td><td style="padding:10px 0;">San Francisco, 2025–2026</td></tr>
+          <tr><td style="padding:10px 0;color:rgba(232,224,212,.5);">App Store</td><td style="padding:10px 0;"><a href="https://apps.apple.com/app/id6762072650" style="color:#FFD080;">apps.apple.com/app/id6762072650</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">What makes Baku AI newsworthy</h2>
+      <ul style="font-size:16px;line-height:1.7;padding-left:20px;">
+        <li><strong>First fully on-device AI bedtime story app for kids in 2026.</strong> Most "AI for kids" apps send voice + prompts to a cloud LLM. Baku runs Gemma 4 entirely on the iPhone. Verifiable: airplane mode works.</li>
+        <li><strong>Built solo.</strong> One indie developer (Jingyang Ye), no team, no VC, no paid marketing. Shipped in ~6 months.</li>
+        <li><strong>Privacy-by-architecture, not by policy.</strong> The privacy story is a code-level guarantee, not a legal promise — there is no server to send data to.</li>
+        <li><strong>Anti-subscription.</strong> One-time $5.99 in a category dominated by $60–$130/year subscriptions (Calm Kids, Moshi, Headspace for Kids).</li>
+        <li><strong>App Store Kids category compliant</strong> (Guideline 1.3 + age 4+ rating) with parental gate, math-challenge for purchases + AI consent, no open chat input for children.</li>
+      </ul>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">Founder bio</h2>
+      <p style="font-size:16px;line-height:1.7;">
+        <strong>Jingyang Ye</strong> is an independent developer based in San Francisco. He built Baku AI for his own daughter after spending a year as a paying Calm Kids subscriber and reading the privacy policy. Before Baku, he worked in product at startups across the US and China. Baku is his first solo iOS project.
+      </p>
+      <p style="font-size:16px;line-height:1.7;">
+        Quotable: <em>"I wanted a bedtime app that doesn't send my daughter's voice to a server. I couldn't find one, so I built it. The whole thing is two thousand lines of Swift and a 1.5-gigabyte AI model. The hardest part was making the moon look right."</em>
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">Screenshots & assets</h2>
+      <p style="font-size:16px;line-height:1.7;">
+        High-resolution screenshots and the app icon are available at <a href="https://apps.apple.com/app/id6762072650" style="color:#FFD080;">the App Store listing</a>. For 1200×2670 device-frame mockups, custom hero shots, or anything else for editorial use, email <a href="mailto:Metaphoria1688@gmail.com" style="color:#FFD080;">Metaphoria1688@gmail.com</a> with subject <em>"Press: [publication name]"</em> and we'll send the same day.
+      </p>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">Story angles already pitched</h2>
+      <ul style="font-size:16px;line-height:1.7;padding-left:20px;">
+        <li>"Privacy-first" angle — kids data, COPPA, on-device vs cloud trade-offs</li>
+        <li>"Indie technical achievement" angle — one developer ships an LLM-powered iOS app</li>
+        <li>"Anti-subscription" consumer angle — for subscription-fatigue families</li>
+        <li>"Apple Silicon AI showcase" angle — tech-press friendly</li>
+        <li>"Parenting tool review" angle — practical, week-long trial pieces</li>
+      </ul>
+      <p style="font-size:16px;line-height:1.7;color:rgba(232,224,212,.7);">
+        Happy to provide founder time (call, email, or written Q&A) for any of these angles. Lead time: 24–48 hours.
+      </p>
+    </section>
+
+    <section style="margin-bottom:0;">
+      <h2 class="font-display font-normal" style="font-size:28px;color:#E8E0D4;margin-top:0;margin-bottom:16px;">Contact</h2>
+      <p style="font-size:16px;line-height:1.7;">
+        <strong>Email:</strong> <a href="mailto:Metaphoria1688@gmail.com" style="color:#FFD080;">Metaphoria1688@gmail.com</a><br/>
+        <strong>Response time:</strong> within 24 hours during US business hours<br/>
+        <strong>Time zone:</strong> Pacific (San Francisco)
+      </p>
+    </section>
+  </article>
+
+  <Footer lang="en" />
+</BaseLayout>

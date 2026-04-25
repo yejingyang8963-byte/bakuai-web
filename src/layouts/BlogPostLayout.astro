@@ -1,0 +1,130 @@
+---
+// src/layouts/BlogPostLayout.astro — markdown post wrapper.
+// Used as `layout: ../../layouts/BlogPostLayout.astro` in /blog/*.md frontmatter.
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: string;        // ISO date
+    updatedDate?: string;
+    author?: string;
+    image?: string;         // /illustrations/xx.webp
+    tags?: string[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+const SITE = 'https://bakuai.app';
+const url = new URL(Astro.url.pathname, SITE).toString();
+
+const ldArticle = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  datePublished: frontmatter.pubDate,
+  dateModified: frontmatter.updatedDate || frontmatter.pubDate,
+  author: { '@type': 'Person', name: frontmatter.author || 'Jingyang Ye', url: SITE },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Baku AI',
+    logo: { '@type': 'ImageObject', url: `${SITE}/apple-touch-icon.png` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  ...(frontmatter.image ? { image: `${SITE}${frontmatter.image}` } : {}),
+  ...(frontmatter.tags ? { keywords: frontmatter.tags.join(', ') } : {}),
+};
+---
+<BaseLayout lang="en">
+  <Nav lang="en" />
+  <script type="application/ld+json" set:html={JSON.stringify(ldArticle)}/>
+
+  <article class="mx-auto px-6" style="max-width:760px;padding-top:80px;padding-bottom:80px;color:#E8E0D4;">
+    <header class="mb-12">
+      <div class="text-[12px] uppercase mb-3 tracking-[0.18em]" style="color:#FFD080">
+        {new Date(frontmatter.pubDate).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}
+        {frontmatter.tags && <span style="margin-left:12px;color:rgba(232,224,212,.4)">• {frontmatter.tags.join(' · ')}</span>}
+      </div>
+      <h1 class="font-display font-light m-0" style="font-size:48px;line-height:1.1;letter-spacing:-0.02em">{frontmatter.title}</h1>
+      <p class="mt-5 text-[18px]" style="line-height:1.55;color:rgba(232,224,212,.78)">{frontmatter.description}</p>
+    </header>
+
+    <div class="prose-baku">
+      <slot/>
+    </div>
+
+    <footer class="mt-16 pt-10" style="border-top:1px solid rgba(255,255,255,.08)">
+      <p class="text-[14px]" style="color:rgba(232,224,212,.5)">
+        Written by {frontmatter.author || 'Jingyang Ye'}, founder of Baku AI.
+        <a href="/" style="color:#FFD080;text-decoration:underline">Try Baku AI on iPhone →</a>
+      </p>
+    </footer>
+  </article>
+
+  <Footer lang="en" />
+</BaseLayout>
+
+<style is:global>
+  .prose-baku {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(232, 224, 212, 0.85);
+  }
+  .prose-baku h2 {
+    font-family: 'Fraunces Variable', serif;
+    font-size: 28px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: #E8E0D4;
+    margin-top: 48px;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .prose-baku h3 {
+    font-family: 'Fraunces Variable', serif;
+    font-size: 22px;
+    color: #E8E0D4;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .prose-baku p { margin: 0 0 18px; }
+  .prose-baku a { color: #FFD080; text-decoration: underline; text-underline-offset: 3px; }
+  .prose-baku a:hover { color: #FFE0A0; }
+  .prose-baku strong { color: #E8E0D4; font-weight: 600; }
+  .prose-baku em { color: rgba(232, 224, 212, 0.72); }
+  .prose-baku ul, .prose-baku ol { margin: 0 0 18px; padding-left: 24px; }
+  .prose-baku li { margin: 6px 0; }
+  .prose-baku table {
+    width: 100%; border-collapse: collapse; margin: 24px 0;
+    font-size: 15px;
+  }
+  .prose-baku th, .prose-baku td {
+    text-align: left; padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .prose-baku th { color: #FFD080; font-weight: 500; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .prose-baku blockquote {
+    margin: 24px 0; padding: 18px 24px;
+    border-left: 3px solid #FFD080;
+    background: rgba(255, 208, 128, 0.04);
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+  }
+  .prose-baku code {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .prose-baku hr {
+    border: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 36px 0;
+  }
+</style>
