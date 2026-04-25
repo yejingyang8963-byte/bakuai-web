@@ -97,6 +97,15 @@ async function main() {
 
     process.stdout.write(`  ${ill.id} [${ill.type}, ${ill.size}] ... `);
 
+    // Skip if file already exists (rerun-safe; pass --force to override)
+    {
+      const { existsSync } = await import('node:fs');
+      if (existsSync(outPath) && !process.argv.includes('--force')) {
+        console.log('skipped (exists)');
+        continue;
+      }
+    }
+
     try {
       const response = await ai.models.generateImages({
         model: 'imagen-4.0-generate-001',

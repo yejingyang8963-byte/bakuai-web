@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-11T19:17:56.034Z",
-  "totalImages": 20,
-  "estimatedCostUSD": 0.8,
+  "generatedAt": "2026-04-25T04:37:02.285Z",
+  "totalImages": 29,
+  "estimatedCostUSD": 1.16,
   "styleLockHash": "798b876d4a8b1ac2",
   "images": [
     {
@@ -9,7 +9,7 @@
       "type": "anchor",
       "size": "1024x1024",
       "promptHash": "e6c5155f3a304d4c",
-      "fileSize": 1678273,
+      "fileSize": 1837468,
       "success": true
     },
     {
@@ -17,7 +17,7 @@
       "type": "anchor",
       "size": "1024x1024",
       "promptHash": "0bdc0b3e4fce5eba",
-      "fileSize": 1888918,
+      "fileSize": 1913912,
       "success": true
     },
     {
@@ -25,22 +25,23 @@
       "type": "anchor",
       "size": "1024x1024",
       "promptHash": "d64d885aca7ce659",
-      "fileSize": 1660932,
+      "fileSize": 1942139,
       "success": true
     },
     {
       "id": "04-house-on-hill",
       "type": "anchor",
+      "size": "1024x512",
       "promptHash": "f7aac319e74dc84b",
-      "success": false,
-      "error": "{\"error\":{\"code\":400,\"message\":\"aspectRatio 2:1 is not supported. Supported values are 1:1, 9:16, 16:9, 4:3, 3:4.\",\"status\":\"INVALID_ARGUMENT\"}}"
+      "fileSize": 1558280,
+      "success": true
     },
     {
       "id": "05-paper-airplane",
       "type": "icon",
       "size": "512x512",
       "promptHash": "1b24c3f0a900cc9c",
-      "fileSize": 1891134,
+      "fileSize": 1877781,
       "success": true
     },
     {
@@ -48,7 +49,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "5403089fe5590339",
-      "fileSize": 1286791,
+      "fileSize": 1888189,
       "success": true
     },
     {
@@ -56,7 +57,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "5c5cb4cd79e9dca5",
-      "fileSize": 1876326,
+      "fileSize": 1525124,
       "success": true
     },
     {
@@ -64,7 +65,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "fe310c650735387c",
-      "fileSize": 1865643,
+      "fileSize": 1822339,
       "success": true
     },
     {
@@ -72,7 +73,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "af2b08b3e51a3924",
-      "fileSize": 1810879,
+      "fileSize": 1814428,
       "success": true
     },
     {
@@ -80,7 +81,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "2ca2fac91c80740b",
-      "fileSize": 1888004,
+      "fileSize": 1909229,
       "success": true
     },
     {
@@ -88,7 +89,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "2e44462408719745",
-      "fileSize": 1393679,
+      "fileSize": 1768152,
       "success": true
     },
     {
@@ -96,7 +97,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "6046c23a8b2d3128",
-      "fileSize": 1768197,
+      "fileSize": 1810559,
       "success": true
     },
     {
@@ -104,7 +105,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "d1a8a35f98dc3acf",
-      "fileSize": 1847530,
+      "fileSize": 1833781,
       "success": true
     },
     {
@@ -112,7 +113,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "5d8833b06cbd200f",
-      "fileSize": 1600092,
+      "fileSize": 1991246,
       "success": true
     },
     {
@@ -120,7 +121,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "b687284fca6e6ff4",
-      "fileSize": 1748326,
+      "fileSize": 1925314,
       "success": true
     },
     {
@@ -128,7 +129,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "6ca8588b0969f722",
-      "fileSize": 1926382,
+      "fileSize": 1903197,
       "success": true
     },
     {
@@ -136,7 +137,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "45d18b1945f98308",
-      "fileSize": 1746896,
+      "fileSize": 1796948,
       "success": true
     },
     {
@@ -144,7 +145,7 @@
       "type": "icon",
       "size": "512x512",
       "promptHash": "0156e3245e2d7519",
-      "fileSize": 1443387,
+      "fileSize": 1910684,
       "success": true
     },
     {
@@ -152,7 +153,7 @@
       "type": "decor",
       "size": "256x256",
       "promptHash": "6bb43f00f88add91",
-      "fileSize": 1719562,
+      "fileSize": 1236347,
       "success": true
     },
     {
@@ -160,7 +161,79 @@
       "type": "decor",
       "size": "256x256",
       "promptHash": "042e1fb4fa6d1a3c",
-      "fileSize": 1595850,
+      "fileSize": 1826211,
+      "success": true
+    },
+    {
+      "id": "06-tap-to-listen",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "05d6fafd9139315a",
+      "fileSize": 1678880,
+      "success": true
+    },
+    {
+      "id": "07-no-wifi",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "209dba24b906b6a4",
+      "fileSize": 1692705,
+      "success": true
+    },
+    {
+      "id": "08-different-story",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "4895c38db97f6624",
+      "fileSize": 1440610,
+      "success": true
+    },
+    {
+      "id": "09-shield",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "1e7f1c320f9fa3b0",
+      "fileSize": 1642800,
+      "success": true
+    },
+    {
+      "id": "10-cabin-window",
+      "type": "anchor",
+      "size": "1024x1024",
+      "promptHash": "2f3ccf87cf60deb7",
+      "fileSize": 1712090,
+      "success": true
+    },
+    {
+      "id": "11-icon-moon",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "6dfcb83105dc07f6",
+      "fileSize": 1582896,
+      "success": true
+    },
+    {
+      "id": "12-icon-clock",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "78e54b1670952e1e",
+      "fileSize": 1644632,
+      "success": true
+    },
+    {
+      "id": "13-icon-feather",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "a1d7c51d5ed56881",
+      "fileSize": 1662951,
+      "success": true
+    },
+    {
+      "id": "15-founder-portrait",
+      "type": "icon",
+      "size": "512x512",
+      "promptHash": "60c13040b70c6475",
+      "fileSize": 1464946,
       "success": true
     }
   ]

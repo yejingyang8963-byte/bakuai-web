@@ -120,6 +120,60 @@
       "type": "decor",
       "size": "256x256",
       "prompt": "A picture book watercolor of a small cluster of 5-7 amber stars of varying sizes, scattered organically. Deep midnight blue background. Tiny, simple, decorative."
+    },
+    {
+      "id": "06-tap-to-listen",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a small child's hand reaching from the right edge to gently tap a softly glowing amber moon-like circle floating in the center against deep midnight blue. Soft watercolor bleeds radiate outward from the touch point in cream and dusty rose. The hand is rendered with warm cream and dusty rose tones. No screen, no phone outline visible — just hand and glow. Composition: hand entering from right, moon centered, ample dark blue space. Conveys 'one tap, then listen'."
+    },
+    {
+      "id": "07-no-wifi",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a tiny cozy cottage with warmly lit amber windows on a small grassy hill at night, deep midnight blue sky above. Above the cottage, three faint hand-painted curved arcs suggest a wifi signal, with a soft watercolor X crossing through them in cream and dusty rose — clearly indicating no signal needed. The cottage feels protected and self-contained. Composition: cottage centered slightly below middle, sky above with crossed wifi arcs."
+    },
+    {
+      "id": "08-different-story",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of an open book lying flat in the center, midnight blue cover. From its open pages flow soft watercolor swirls of varied dream imagery — a tiny dragon's tail, a small castle turret, a paper boat — each in amber gold, cream, dusty rose, drifting upward and outward as if each page generates a different tale. Composition: book grounded in lower half, story imagery swirling into the upper darkness. Conveys 'a new story every night'."
+    },
+    {
+      "id": "09-shield",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a softly rounded shield shape painted in warm amber gold with cream highlights, centered on a deep midnight blue background. At the heart of the shield, a tender hand-painted heart in dusty rose glows gently. Around the shield, faint watercolor petals and small amber stars drift in cream. The shield looks gentle and protective rather than military — like a parent's embrace. Composition: shield centered, heart at exact center of shield."
+    },
+    {
+      "id": "10-cabin-window",
+      "type": "anchor",
+      "size": "1024x1024",
+      "prompt": "A picture book watercolor illustration of a single warmly-lit window of a small cabin seen from outside at night. The window is a tall arched rectangle glowing amber gold, with soft cream curtains visible inside. Through the window, hint at a small child's silhouette being read to by a parent silhouette — barely visible warm shapes inside. The wooden cabin walls are painted in dusty rose and deep brown watercolor strokes. Around the cabin, deep midnight blue night sky, a few hand-painted amber stars, soft watercolor bleeds. The signature 'home' illustration of Baku — the warmth of bedtime ritual seen from outside in. Composition: window slightly left of center, cabin filling lower 2/3, night sky above."
+    },
+    {
+      "id": "11-icon-moon",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a small glowing crescent moon icon, painted in warm amber gold with cream highlights and dusty rose shadow. Centered against a deep midnight blue square background. Hand-painted with visible watercolor bleeds at the edges of the moon. Simple, iconic, no other elements. Composition: moon takes ~60% of frame, centered. Icon size — a single readable symbol."
+    },
+    {
+      "id": "12-icon-clock",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a small soft round clock face icon, painted in cream with amber gold hands pointing at a gentle bedtime hour around 8:00. Hour positions softly suggested with watercolor dots in dusty rose, not crisp text. Centered against a deep midnight blue square background. Hand-painted with visible watercolor bleeds. Simple, iconic. Composition: clock centered, takes ~60% of frame."
+    },
+    {
+      "id": "13-icon-feather",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a single soft floating feather icon, painted in cream with amber gold and dusty rose highlights along its barbs. The feather drifts slightly, with soft watercolor wash suggesting gentle motion. Centered against a deep midnight blue square background. Hand-painted with visible watercolor bleeds. Simple, iconic, conveys lightness. Composition: feather diagonal, takes ~70% of frame."
+    },
+    {
+      "id": "15-founder-portrait",
+      "type": "icon",
+      "size": "512x512",
+      "prompt": "A picture book watercolor illustration of a father seated by a tall arched window at night, holding a small open book on his lap, a young child curled against him also looking at the book. Both rendered as soft watercolor silhouettes — warm cream and amber gold tones for skin and clothing, dusty rose for shadows. Through the window, deep midnight blue night sky with a single amber moon visible. Soft amber lamplight glows beside them. Hand-painted with visible brush strokes. Composition: father and child slightly left of center, window taking right third, intimate and warm."
     }
   ]
 }
