@@ -1,6 +1,6 @@
 label: "RESPUESTA RÁPIDA"
 question: "¿Qué es Baku AI?"
-answer: "Baku AI es una app para iPhone que genera un cuento distinto cada noche, completamente en el dispositivo con el modelo Gemma 4 de Google. Elige un deseo, pulsa una vez y Baku lee con voz suave durante 5–8 minutos. Sin conexión, sin cuenta, sin publicidad, sin recolección de datos. Una compra ($5.99), tuyo para siempre."
+answer: "Baku AI es una app de cuentos para dormir para iPhone diseñada para niños de 3 a 8 años, que genera un cuento distinto cada noche, completamente en el dispositivo con el modelo Gemma 4 de Google. Elige un deseo, pulsa una vez y Baku lee con voz suave durante 5–8 minutos — en inglés, chino simplificado o español. La pantalla se atenúa para que los niños escuchen con los ojos cerrados. Sin conexión, sin cuenta, sin suscripción, sin publicidad, sin recolección de datos — cumple COPPA y GDPR-K por diseño. Incluye canciones de cuna, meditaciones y sonidos ambientales. Una compra única de $5.99, acceso de por vida. $0.99/mes opcional desbloquea la voz personal (tu propia voz grabada lee los cuentos)."
 stats:
   - ["MODELO", "Gemma 4 (en dispositivo)"]
   - ["RED", "Sin conexión tras instalar"]
