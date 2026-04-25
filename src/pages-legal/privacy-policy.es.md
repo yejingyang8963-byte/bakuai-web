@@ -58,6 +58,7 @@ dispositivo**. Ninguno se transmite a ningún lugar:
 | Historial de escucha (solo títulos) | iOS UserDefaults, local a tu dispositivo | Impulsa la sugerencia "Cuento de hoy" |
 | Estadísticas de duración del sueño | iOS UserDefaults | Impulsa la vista opcional de estadísticas de sueño |
 | Ajustes (idioma, voz, estado de compras) | iOS UserDefaults | Recuerda tus preferencias entre lanzamientos |
+| Perfil del nino (nombre, edad, preferencias) | Almacenamiento local de la app (Application Support), cifrado por iOS Data Protection | Permite historias personalizadas donde tu hijo es el protagonista (v1.1). Nunca se transmite. |
 
 Todo esto está dentro del sandbox de la app. Cuando eliminas Baku AI,
 todo esto se elimina con ella. No hay ninguna copia en ningún otro lugar.
@@ -150,13 +151,33 @@ https://reportaproblem.apple.com
 
 Baku AI está explícitamente diseñado para niños y cumple plenamente
 con la Ley de Protección de la Privacidad Infantil en Línea (COPPA)
-de EE.UU. y las normas equivalentes europeas y del Reino Unido, de la
-manera más simple posible: **no recopilamos información personal de
-nadie, ni niño ni adulto.**
+de EE.UU. y las normas equivalentes europeas y del Reino Unido.
 
-Como no recopilamos datos, no hay consentimiento parental verificable
-que obtener, no hay solicitud de acceso a datos que procesar, y no
-hay solicitud de eliminación de datos que cumplir — **no hay datos**.
+La única información personal que la app almacena es el **perfil del
+niño opcional** (nombre/apodo, rango de edad, rasgos de personalidad,
+compañero, temas a evitar) que los padres pueden crear en Ajustes →
+Controles parentales para activar cuentos personalizados donde el
+niño es el protagonista. Como se detalla en la Sección 3:
+
+- El perfil del niño vive **solo en el sandbox de la app en tu
+  dispositivo** — cifrado en reposo por iOS Data Protection, nunca se
+  transmite, nunca se comparte con nosotros ni con terceros.
+- Crear, editar o eliminar el perfil ocurre **detrás del control
+  parental** (un desafío aritmético para adultos). Los niños no
+  pueden crear ni modificar datos del perfil por sí mismos.
+- Los padres pueden eliminar el perfil en cualquier momento vía
+  Ajustes → Controles parentales → Perfil del niño, o desinstalando
+  la app (que elimina todo).
+- La app funciona completamente sin perfil — los perfiles son
+  totalmente opcionales. Por defecto, no se almacena información
+  alguna del niño.
+
+Para todos los demás propósitos, no recopilamos información personal
+de nadie, ni niño ni adulto. No hay servicio en línea que reciba
+datos, por lo que no se necesita un flujo de consentimiento
+verificable de terceros — el padre o tutor da consentimiento dentro
+de la app al pasar el control parental antes de que se cree cualquier
+dato del perfil.
 
 Si eres padre, madre o tutor y quieres verificarlo tú mismo, puedes:
 

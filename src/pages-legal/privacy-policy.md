@@ -54,6 +54,7 @@ None of it is transmitted anywhere:
 | Listening history (titles only) | iOS UserDefaults, local to your device | Powers the "Today's story" suggestion |
 | Sleep duration statistics | iOS UserDefaults | Powers the optional sleep statistics view |
 | Settings (language, voice, paywall state) | iOS UserDefaults | Remembers your preferences between launches |
+| Child profile (name, age, preferences) | App's local file storage (Application Support), encrypted via iOS Data Protection | Powers personalized stories where your child is the protagonist (v1.1). Never transmitted. |
 
 All of this is inside the app's sandbox. When you delete Baku AI, all
 of this is deleted with it. There is no copy elsewhere.
@@ -139,13 +140,31 @@ https://reportaproblem.apple.com
 
 Baku AI is explicitly designed for children and fully complies with
 the U.S. Children's Online Privacy Protection Act (COPPA) and the
-equivalent European and UK child-privacy rules, by the simplest
-possible means: **we collect no personal information from anyone,
-child or adult.**
+equivalent European and UK child-privacy rules.
 
-Because we collect no data, there is no verifiable parental consent
-to obtain, no data-access request to process, and no data-deletion
-request to fulfill — there is no data.
+The only personal information the app stores is the **optional child
+profile** (name/nickname, age band, personality traits, companion,
+themes to avoid) that parents can create in Settings → Parental
+Controls to enable personalized stories where the child is the
+protagonist. As detailed in Section 3:
+
+- The child profile lives **only in your device's app sandbox** —
+  encrypted at rest by iOS Data Protection, never transmitted, never
+  shared with us or any third party.
+- Creating, editing, or deleting a profile happens **behind the
+  parental gate** (an arithmetic challenge for adults). Children
+  cannot create or modify profile data on their own.
+- Parents may delete the profile at any time via Settings → Parental
+  Controls → Child Profile, or by uninstalling the app (which removes
+  everything).
+- The app works fully without a profile — profiles are entirely
+  opt-in. By default, no child information is stored.
+
+For all other purposes, we collect no personal information from
+anyone, child or adult. There is no online service receiving data,
+so there is no third-party verifiable-consent flow needed — the
+parent gives consent in-app by passing the parental gate before any
+profile data is created.
 
 If you are a parent or guardian and want to verify this for yourself,
 you can:
