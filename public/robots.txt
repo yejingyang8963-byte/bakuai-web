@@ -1,0 +1,48 @@
+# https://bakuai.app — robots policy
+# We welcome AI/LLM crawlers explicitly (transparency-friendly).
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Major LLM crawlers — explicit allow (some default to denied)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# LLM facts file (preferred over crawling full HTML)
+# Read: https://bakuai.app/llms.txt
+
+Sitemap: https://bakuai.app/sitemap-index.xml

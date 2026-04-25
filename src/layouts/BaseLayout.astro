@@ -7,18 +7,95 @@ export interface Props { lang: Lang }
 const { lang } = Astro.props;
 const meta = loadContent(lang, 'meta');
 // meta.yml: htmlLang, title, description, keywords, ogTitle, ogDescription
-const ldApp = {
-  '@context':'https://schema.org','@type':'MobileApplication',
-  name:'Baku AI', operatingSystem:'iOS 17+', applicationCategory:'KidsApplication',
-  description: meta.description,
-  offers:{ '@type':'Offer', price:'19.99', priceCurrency:'USD' },
-  author:{ '@type':'Person', name:'Jingyang Ye' },
-  featureList:['100% offline after first launch','Gemma 4 on-device AI','English + Simplified Chinese + Spanish','12-language safety filter','Zero data collection','No accounts, no subscriptions'],
+
+const SITE = 'https://bakuai.app';
+const APP_STORE_URL = 'https://apps.apple.com/app/id6762072650';
+
+// Canonical URL: site root + current pathname (without trailing index.html)
+const canonical = new URL(Astro.url.pathname, SITE).toString();
+
+// Locale-aware OG locale codes
+const ogLocaleByLang: Record<Lang, string> = { en: 'en_US', zh: 'zh_CN', es: 'es_ES' };
+
+// Author / publisher entity (reused across schemas)
+const personAuthor = {
+  '@type': 'Person',
+  name: 'Jingyang Ye',
+  url: SITE,
+  jobTitle: 'Founder, Baku AI',
 };
+const orgPublisher = {
+  '@type': 'Organization',
+  name: 'Baku AI',
+  url: SITE,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE}/apple-touch-icon.png`,
+  },
+};
+
+const ldApp = {
+  '@context': 'https://schema.org',
+  '@type': 'MobileApplication',
+  name: 'Baku AI',
+  alternateName: ['Baku', '貘 AI'],
+  operatingSystem: 'iOS 17+',
+  applicationCategory: 'KidsApplication',
+  applicationSubCategory: 'Education',
+  description: meta.description,
+  url: SITE,
+  downloadUrl: APP_STORE_URL,
+  installUrl: APP_STORE_URL,
+  offers: {
+    '@type': 'Offer',
+    price: '5.99',
+    priceCurrency: 'USD',
+    availability: 'https://schema.org/InStock',
+    priceValidUntil: '2026-12-31',
+  },
+  author: personAuthor,
+  publisher: orgPublisher,
+  inLanguage: ['en', 'zh-CN', 'es'],
+  audience: {
+    '@type': 'PeopleAudience',
+    suggestedMinAge: 3,
+    suggestedMaxAge: 8,
+  },
+  featureList: [
+    '100% offline after first launch',
+    'Gemma 4 on-device AI (no cloud)',
+    'English + Simplified Chinese + Spanish',
+    '12-language safety filter',
+    'Zero data collection, zero tracking',
+    'No accounts, no subscriptions required',
+    '$5.99 one-time purchase, lifetime access',
+    'Built-in lullabies, meditations, ambient sounds',
+    'Sleep timer with screen-dim',
+    'COPPA + GDPR-K compliant by design',
+    'Personalized stories with child as protagonist',
+    'No ads, no in-app advertising',
+  ],
+};
+
 const faq = loadContent(lang, 'faq');
 const ldFaq = {
-  '@context':'https://schema.org','@type':'FAQPage',
-  mainEntity: (faq.items || []).map((it: any) => ({ '@type':'Question', name: it.question, acceptedAnswer: { '@type':'Answer', text: it.answer } })),
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: (faq.items || []).map((it: any) => ({
+    '@type': 'Question',
+    name: it.question,
+    acceptedAnswer: { '@type': 'Answer', text: it.answer },
+  })),
+};
+
+// WebSite schema with publisher — helps LLM/Google identify the publisher entity
+const ldWebsite = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Baku AI',
+  url: SITE,
+  publisher: orgPublisher,
+  inLanguage: ['en', 'zh-CN', 'es'],
 };
 ---
 <!doctype html>
@@ -30,21 +107,39 @@ const ldFaq = {
   <meta name="description" content={meta.description}/>
   {meta.keywords && <meta name="keywords" content={meta.keywords}/>}
 
+  <link rel="canonical" href={canonical}/>
+  <meta name="robots" content="index, follow, max-image-preview:large"/>
+
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
+  <meta property="og:site_name"   content="Baku AI"/>
   <meta property="og:title"       content={meta.ogTitle || meta.title}/>
   <meta property="og:description" content={meta.ogDescription || meta.description}/>
   <meta property="og:type"        content="website"/>
-  <meta property="og:image"       content="/og-image.png"/>
+  <meta property="og:url"         content={canonical}/>
+  <meta property="og:image"       content={`${SITE}/og-image.png`}/>
+  <meta property="og:image:alt"   content="Baku AI — bedtime storyteller for iPhone"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:locale"      content={ogLocaleByLang[lang]}/>
 
-  <link rel="alternate" hreflang="en" href="https://bakuai.app/"/>
-  <link rel="alternate" hreflang="zh" href="https://bakuai.app/zh/"/>
-  <link rel="alternate" hreflang="es" href="https://bakuai.app/es/"/>
-  <link rel="alternate" hreflang="x-default" href="https://bakuai.app/"/>
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content={meta.ogTitle || meta.title}/>
+  <meta name="twitter:description" content={meta.ogDescription || meta.description}/>
+  <meta name="twitter:image"       content={`${SITE}/og-image.png`}/>
+  <meta name="twitter:image:alt"   content="Baku AI — bedtime storyteller for iPhone"/>
+
+  <meta name="apple-itunes-app" content="app-id=6762072650"/>
+
+  <link rel="alternate" hreflang="en" href={`${SITE}/`}/>
+  <link rel="alternate" hreflang="zh" href={`${SITE}/zh/`}/>
+  <link rel="alternate" hreflang="es" href={`${SITE}/es/`}/>
+  <link rel="alternate" hreflang="x-default" href={`${SITE}/`}/>
 
   <script type="application/ld+json" set:html={JSON.stringify(ldApp)}/>
   <script type="application/ld+json" set:html={JSON.stringify(ldFaq)}/>
+  <script type="application/ld+json" set:html={JSON.stringify(ldWebsite)}/>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
